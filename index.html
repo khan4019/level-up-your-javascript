@@ -269,7 +269,6 @@
             </div>
 				</section>
         <section>
-          <!--.wrap = container (width: 90%) -->
           <div class="wrap size-50 aligncenter">
             <h2><strong>Why Code JavaScript?</strong></h2>
             <p class="text-intro"><a href="">Why not frameworks like angular, react or vue.</a></p>
@@ -289,9 +288,7 @@
                   </li>
               </ul>
             </div>
-            <!-- .end .bg-white shadow -->
           </div>
-          <!-- .end .wrap -->
         </section>
         <section>
           <h1>Function</h1>
@@ -370,6 +367,13 @@ console.log(add.length); //2
                 <div class="grid sms">
                   <div class="column">
                       <pre><code class="hljs javascript">
+function add(a,b){
+  return a+b;
+}
+  
+console.log(add(,3));//5
+                                              </code></pre>
+                      <pre><code class="hljs javascript">
 function noFunc(){
 }
   
@@ -382,8 +386,7 @@ console.log(noFunc());//undefined
                           <li><h4>always return</h4></li>
                          <li><h4>default return is <code>undefined</code></h4></li>
                          <br/>
-                         <li><h4>"new" for constructor returns <code>this</code></h4></li>
-                         <li><h4>arguments - is an array like object</h4></li> 
+                         
                        </ol>
                   </div>
                 </div>
@@ -430,6 +433,308 @@ console.log(b);
                   </div>
                 </div>
             </section>
+            <section>
+                <div class="wrap">
+                    <h4 class="aligncenter"><code>arguments</code> - all the arguments passed to the function</h4>
+                    <hr>
+                    <div class="grid">
+                      <div class="column">
+                          <pre><code class="hljs javascript">
+function add(a,b){
+  console.log(arguments);
+  return a+b;
+}
+  
+add(2,3);
+//[2,3]
+                        </code></pre>
+                      </div>
+                      <div class="column">
+                          <pre><code class="hljs javascript">
+function add(a,b){
+  console.log(arguments);
+  return a+b;
+}
+  
+add(2,3,5,7);
+//[2,3,5,7]
+                        </code></pre>
+                        </div>
+                        <div class="column">
+                            <pre><code class="hljs javascript">
+function add(a,b){
+  console.log(arguments);
+  return a+b;
+}
+  
+add();
+//[]
+                          </code></pre>
+                          </div>
+                    </div>
+                  </div>
+              </section>
+            <section>
+                <div class="wrap size-50 aligncenter">
+                  <h2><strong>Function Creation</strong></h2>
+                  <p class="text-intro"><a href="">Two stages.</a></p>
+                  <pre><code>
+function foo(a, b){
+    return a * b;
+}
+
+foo(2,3);
+                                    </code></pre>
+                  <div class="bg-white shadow">
+                    <ul class="flexblock reasons">
+                      <li>
+                        <h2>Creation Stage.</h2>
+                        <!-- <p>Just only a framework will not a build an application. To put logic, functionalities, you have to use javascript.</p> -->
+                      </li>
+                      <li>
+                        <h2>Execution Stage.</h2>
+                        <!-- <p>Magic is good to do simple things. For large application, magic in frameworks will through you under the bus.</p> -->
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </section>
+              <section>
+                  <div class="wrap">
+                    <h2 class="aligncenter">Creation Stage</h2>
+                    <ul>
+                        <li class="fragment"><h4>Each function call creates own ExectuionContext</h4></li>
+                        <li class="fragment"><h4>Roughly an 'environment' where function executes</h4></li>
+                    </ul>
+                    <br>
+                    <br>
+                    <ul class="flexblock plans blink">
+                      <li>
+                        <a href="#" title="Register">
+                          <h2>First</h2>
+                          <div>
+                              <pre class=""><code>
+ExecutionContext: {}
+                               </code></pre>
+                          </div>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#" title="Purchase">
+                          <h2>Second</h2>
+                          <div>
+                              <pre class="fragment"><code>
+ExecutionContext: {
+    scopeChain: { ... }
+}
+                                                </code></pre>
+                          </div>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#" title="Purchase">
+                          <h2>Third</h2>
+                          <div>
+                              <pre class=""><code>
+ExecutionContext: {
+  scopeChain : { ... },
+  variableObject: { ... }
+}
+                              </code></pre>
+                          </div>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </section>
+                <section class="slide-top">
+                  <div class="content-center">
+                      <h2>Creation stage</h2>
+                      <ol>
+                       <li>
+                          <h4>create arguments variable</h4>
+                        </li>
+                      </ol>
+                      <pre class="fragment"><code>
+ExecutionContext: {
+    scopeChain : { ... },
+    variableObject: {
+        arguments:{ ... }
+    }
+}
+                      </code></pre>
+                  </div>
+                </section>
+                <section class="slide-top">
+                    <h4 class="aligncenter">Set arguments</h4>
+                   <div class="content-center">
+                      <pre class=""><code>
+foo(2,3);
+                      </code></pre>
+                      <pre class=""><code>
+ExecutionContext: {
+    scopeChain : { ... },
+    variableObject: {
+        arguments:{
+          0 : 2,
+          1 : 3,
+          length : 2
+        }
+    }
+}
+                                        </code></pre>
+                                        <p><small>Ref: <a href="http://davidshariff.com/blog/what-is-the-execution-context-in-javascript/">JavaScript execution</a></small></p>
+                   </div>
+                   
+                </section>
+                <section class="slide-top">
+                 <div class="content-center">
+                    <h4>variable instantiation</h4>
+                    <pre><code>
+ExecutionContext: {
+    scopeChain : { ... },
+    variableObject: {
+        arguments:{
+          0 : 2,
+            1 : 3,
+          length : 2
+        },
+        a : 2,
+        b : 3
+    }
+}
+                    </code></pre>
+                    <pre class="fragment"><code>
+function foo(a, b){
+    return a * b;
+}
+
+foo(2,3);
+                    </code></pre>  
+                </div> 
+                </section>
+                <section>
+                  <h2>inner variable, function</h2>
+                  <pre><code>
+function foo(a, b){
+    function inner(){
+      console.log(a);
+    }
+    var c = a + b;
+    return a * b;
+}
+                  </code></pre>
+                  
+                </section>
+                <section>
+                  <div class="content-center">
+                    <h2>variables and functions inside the function</h2>
+                      <pre class="fragment"><code>
+ExecutionContext: {
+    scopeChain : { ... },
+    variableObject: {
+        arguments:{
+          0 : 2,
+            1 : 3,
+          length : 2
+        },
+        a : 2,
+        b : 3,
+        inner : pointer to function inner,
+        c : undefined
+    }
+}
+                                        </code></pre>
+                  </div>
+                </section>
+                <section class="slide-top">
+                  <div class="content-center">
+                      <h2>this</h2>
+                      <h4>object, “owner” of the function being executed</h4>
+                                    <pre class="fragment"><code>
+ExecutionContext: {
+    scopeChain : { ... },
+    variableObject: { ... },
+    this:{ ... }
+}
+                      </code></pre>
+                  </div>
+                </section>
+                <section class="slide-top">
+                    <div class="content-center">
+                        <pre class="fragment"><code>
+ExecutionContext: {
+    scopeChain : { ... },
+    variableObject: {
+        arguments:{
+          0 : 2,
+            1 : 3,
+          length : 2
+        },
+        a : 2,
+        b : 3,
+        ttt : pointer to function ttt(),
+        c : undefined,
+    },
+    this: { ... }
+}
+                                          </code></pre>
+                    </div>
+                    
+                  </section>
+                   <section>
+                    <h2>scope chain</h2>
+                    <h4>a collection of</h4>
+                    <ol>
+                      <li><h4>current execution context</h4></li>
+                      <li><h4>all parent execution context</h4></li>
+                    </ol>
+                  </section> 
+                  <section>
+                    <h2>Execution Context and Scope</h2>
+                    <ul>
+                        <li><h4>A concept in the language spec</h4></li>
+                        <li class="fragment"><h4>Roughly an 'environment' where function executes</h4></li>
+                        <li class="fragment"><h4>It holds: scope, scope chain, arguments, variables</h4></li>
+                        <li class="fragment"><h4>Each function call creates own ExectuionContext</h4></li>
+                    </ul>
+                    <div class="fragment">
+                      <hr>
+                      <ul>
+                          <li class=""><h4>Scope is static.</h4></li>
+                          <li class="fragment"><h4>Set when function is created and never changes</h4></li>
+                          <li class="fragment"><h4>scope is a property of the function</h4></li>
+                      </ul>
+                    </div>
+                    <div style="display:none">
+                        <p>Execution context is a concept in the language spec that—in layman's terms—roughly equates to the 'environment' a function executes in; that is, variable scope (and the scope chain, variables in closures from outer scopes), function arguments, and the value of the this object.</p> 
+                        <p>JavaScript uses static scope; that is, the scope chain of a function is defined at the moment that function is created and never changes; the scope chain is a property of the function.</p> 
+                        <p>Execution context is different and separate from the scope chain</p> 
+                    </div>
+                  </section>
+                  <section>
+                    <h2>Execution stage</h2>
+                    <ol>
+                      <li><h4>Start reading the code from first line</h4></li>
+                      <li class="fragment"><h4>Assign values</h4></li>
+                      <li class="fragment"><h4>If need to access variable, it read from ExecutionContext</h4></li>
+                      <li class="fragment"><h4>Until hits first return or body ends</h4></li>
+                    </ol>
+                  </section>
+                  <section>
+                    <h1>Summary</h1>
+                    <ol>
+                        <li><h4>Two stages of function: creation, execution</h4></li>
+                        <li><h4>Creates execution context (before running any code) </h4></li>
+                        <br>
+                        <li class="fragment"><h4>First thing created is the scope chain</h4></li>
+                        <li class="fragment"><h4>Then it creates variableObject</h4></li>
+                        <br>
+                        <li class="fragment"><h4>Create arguments, variable, determine <code>this</code></h4></li>
+                        <br>
+                        <li class="fragment"><h4>Execute function</h4></li>
+                      </ol>
+                  </section>
         <section>
           <!--.wrap = container (width: 90%) -->
           <div class="wrap">
