@@ -840,7 +840,6 @@ function b(){
                       </div>
                     </section>
                     <section>
-                      
                       <div class="wrap">
                           <img class="alignright size-50" src="static/images/multiScope.png" alt="iPhone">
                           <div>
@@ -873,8 +872,223 @@ c();
                               </div>
                     </section>
                     <section>
-                      
-                    </section>
+                        <div class="wrap">
+                          <div class="grid vertical-align">
+                            <div class="column">
+                                <h1>Block Scope</h1>
+                                <ol>
+                                  <li>
+                                    <h4>Block: Anything inside curly braces</h4>
+                                  </li>
+                                  <li>
+                                      <h4>Javascript Block statements do not introduce a scope</h4>
+                                    </li>
+                                  <li>
+                                    <h4>JavaScript(up to ES5) does not have block scope.</h4>
+                                  </li>
+                                  <li>
+                                    <h4>Variables introduced within a block are scoped to the containing function or script</h4>
+                                  </li>
+                                </ol>
+                            </div>
+                            <div class="column">
+                                <pre><code>
+for(var i = 0; i<5; i++){
+  var twice = i*2;
+}
+console.log(i);
+console.log(twice);
+//5 
+//8
+                                </code></pre>
+                              </div>
+                          </div>
+                        </div>
+                      </section>
+                      <section>
+                          <div class="wrap">
+                            <div class="grid vertical-align">
+                              <div class="column">
+                                  <h1>ES6: let and const</h1>
+                                  <ol>
+                                    <li>
+                                      <h4>let: declares a block scope local variable</h4>
+                                    </li>
+                                    <li>
+                                        <h4>Current block and contained sub-blocks</h4>
+                                      </li>
+                                    <li>
+                                      <h4>const: can not be reassigned.</h4>
+                                    </li>
+                                    <li>
+                                      <h4>can be recreated inside a loop</h4>
+                                    </li>
+                                  </ol>
+                              </div>
+                              <div class="column">
+                                  <pre><code class="hljs javascript">
+  for(let i = 0; i<5; i++){
+    const twice = i*2;
+  }
+  console.log(i);
+  console.log(twice);
+  //Uncaught ReferenceError: i is not defined
+  //Uncaught ReferenceError: twice is not defined
+                                  </code></pre>
+                                </div>
+                            </div>
+                          </div>
+                        </section>   
+                        <section>
+                            <h1>closure</h1>
+                            <div class="wrap">
+                                <img class="alignright size-50" src="static/images/closure.jpg" alt="iPhone">
+                            </div>
+                          </section>
+                          <section>
+                            <h2>function in a function</h2>
+                            <hr>
+                            <div class="wrap">
+                                <div class="grid vertical-align">
+                                  <div class="column">
+                                      <pre class=""><code>
+function counter(){
+    var i = 0;
+
+    return function(){
+        return i++;
+    }
+}
+                                                        </code></pre>
+                                  </div>
+                                  <div class="column">
+                                      <pre class="fragment"><code>
+var a = counter();
+
+a;
+//function (){
+//       return i++;
+//    }
+                                                        </code></pre>
+                                    </div>
+                                    <div class="column sms">
+                                        <pre class="fragment"><code>
+a(); //0
+
+a(); //1
+
+a(); //2
+                                        </code></pre>
+                                    </div>
+                                </div>
+                            </div>
+                            </section>
+                          <section>
+                           <div class="wrap">
+                              <img class="alignright size-50" src="static/images/closureOneFunc0.png" alt="iPhone">
+                              <div>
+                                  <h2>Lexical scope</h2>
+                                  <pre style="width:40%"><code>
+function counter(){
+  var i = 0;
+
+  return function(){
+      return i++;
+  }
+}
+
+const a = counter();
+
+a(); // 0
+                                  </code></pre>
+                                  <p><small>Lexical Scoping defines how variable names are resolved in nested functions: inner functions contain the scope of parent functions even if the parent function has returned.</small></p>
+                              </div>
+                            </div>
+                          </section>
+                          <section class="slide-top">
+                              <h1 class="aligncenter">Multiple Closure</h1>
+                              <div class="content-center">
+                                  <pre><code>
+function counter(){
+    var i = 0;
+    return function(){
+        return i++;
+    }
+}
+                                    </code></pre>
+                              </div>
+                              <div class="wrap">
+                                  <div class="grid vertical-align">
+                                    <div class="column">
+                                        <pre class="fragment"><code>
+var a = counter();
+a(); //0
+a(); //1
+a(); //2
+a(); //3
+a(); //4
+                                          </code></pre>
+                                    </div>
+                                    <div class="column">
+                                        <pre><code>
+var b = counter();
+b(); //0
+b(); //1
+b(); //2
+b(); //3
+
+                                          </code></pre>
+                                    </div>
+                                    </div>
+                                  </div>
+                                </div>
+                             <h6 class="fragment">a and b has separate private i to remember position</h6> 
+                          </section>
+                           <section>
+                            <h2>closure creation</h2>
+                            <img src= "static/images/closure1.png" alt="">
+                            <br>
+                            <span class="fragment">private variable</span>
+                            <span class="fragment">, save state</span>
+                            <span class="fragment">, create encapsulation</span>
+                            <h6 class="fragment">every assignment of counter creates new closure</h6>
+                          </section> 
+                          <section>
+                            <h2>multiple closure</h2>
+                            <pre><code>
+              var b = counter();
+              b(); //0
+              b(); //1
+              b(); //2
+              b(); //3</code></pre>
+                            <img  class="fragment" src= "static/images/closureTwoFunc.png" alt="">
+                            <p class="fragment">each closure have separate private variable</p>
+                          </section>
+                          <section>
+                            <h2>Who care?</h2>
+                            <ol>
+                              <li>garbage collector can not claim the variable you are holding</li>
+                              <li class="fragment">How many closure you are creating</li>
+                              <br>
+                              <li class="fragment">variable reference: Dont use excessively large private variable</li>
+                              <li class="fragment">Unnecessary closure affect processing speed and memory consumption</li>
+                            </ol>
+                            <br>
+                            <br>
+                            <br>
+                            <a href="http://coding.smashingmagazine.com/2012/11/05/writing-fast-memory-efficient-javascript/">Addy Osmani: memory efficient JS</a>
+                          </section>
+                          <section>
+                            <h2>Summary</h2>
+                            <ul>
+                              <li>function inside another function</li>
+                              <li class="fragment">doesn't have to return function</li>
+                              <li class="fragment">Refer to variables, parameters outside of current scope</li>
+                              <li class="fragment">read and write outer scope variable</li>
+                              <li class="fragment">each closure has separate private variable</li>
+                            </ul>
+                            <a href="http://javascript-reference.info/javascript-closures-for-dummies.htm">Closure for dummies</a>
+                          </section>         
         <section>
           <!--.wrap = container (width: 90%) -->
           <div class="wrap">
