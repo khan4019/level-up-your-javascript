@@ -1227,140 +1227,123 @@ justLooping(); // 5 8
                                   </div>
                               </section>
                               <section>
-                                <h4>let's look into inner function</h4>
-                                <pre><code>
-                  function outer(){
-                    inner();
-                  
-                    //do something else 	
-                    
-                    function inner(){
-                      console.log('inside inner function');
-                    }  
-                  }
-                  
-                  outer(); // inside inner function
-                                </code></pre>
-                                <pre class="fragment"><code>
-                  function outer(){
-                    function inner(){
-                      console.log('inside inner');
-                    }
-                  
-                    //do something
-                    
-                    inner();
-                  }
-                                </code></pre>							
-                                <a href="http://www.kenneth-truyers.net/2013/04/20/javascript-hoisting-explained/">JS hoisting explained</a>
+                                  <div class="wrap">
+                                      <h1 class="aligncenter">Hoist function declaration with definition</h1>
+                                      <hr>
+                                      <div class="grid">
+                                        <div class="column">
+                                            <pre><code class="hljs javascript">
+function outer(){
+  inner();
+
+  //do something else 	
+  
+  function inner(){
+    console.log('inside inner function');
+  }  
+}
+
+outer();
+                                          </code></pre>
+                                        </div>
+                                        <div class="column">
+                                            <pre><code class="hljs javascript">
+function outer(){
+  function inner(){
+    console.log('inside inner');
+  }
+
+  inner();
+
+  //do something
+}
+
+outer();  
+  </code></pre>
+                                          </div>
+                                      </div>
+                                    </div>
                               </section>
                               <section>
-                                <h2>function expression</h2>
-                                <pre><code>
-                  function outer(){
-                    inner();
-                    //do something else 	
-                    var inner = function(){
-                      console.log('inside inner');
-                    }  
-                  }
-                                </code></pre>
-                                <pre class="fragment"><code>
-                  outer();//TypeError: undefined is not a function
-                                </code></pre>
-                                <pre class="fragment"><code>
-                  function outer(){
-                    var inner;
-                    inner();
-                    //do something else 	
-                    inner = function(){
-                      console.log('inside inner');
-                    }  
-                  }</code></pre>
+                                  <div class="wrap">
+                                      <h2 class="aligncenter">Hoist function name only for function expression</h2>
+                                      <hr>
+                                      <div class="grid">
+                                        <div class="column">
+                                            <pre><code class="hljs javascript">
+function outer(){
+  inner();
+  //do something else 	
+  var inner = function(){
+    console.log('inside inner');
+  }  
+}
+
+outer();//Uncaught TypeError: inner is not a function
+
+                                          </code></pre>
+                                        </div>
+                                        <div class="column">
+                                            <pre><code class="hljs javascript">
+function outer(){
+  var inner;
+  inner();
+  //do something else 	
+  inner = function(){
+    console.log('inside inner');
+  }  
+}
+
+outer();//Uncaught TypeError: inner is not a function 
+  </code></pre>
+                                          </div>
+                                      </div>
+                                    </div>
                               </section>
                                <section>
-                                <h2>function hoisting</h2>
-                                <pre><code>
-                  function foo(){
-                    var f = function() {
-                        console.log("original");
-                    }
-                  
-                    function f() {
-                        console.log("duplicate");
-                    }
-                  
-                    f();
-                  }
-                  
-                  foo(); //?
-                                </code></pre>
-                                <pre class="fragment"><code>
-                  foo(); //original;
-                                </code></pre>
+                                  <div class="wrap">
+                                      <h2 class="aligncenter">Million dollar question</h2>
+                                     <div class="grid">
+                                        <div class="column">
+                                            <pre><code class="hljs javascript">
+var a = 1;
+
+function bar(){
+  a = 10;
+  return;
+  var a = 7;
+}
+
+bar();
+
+console.log(a);//?
+
+                                          </code></pre>
+                                        </div>
+                                        <div class="column">
+                                            <pre><code class="hljs javascript">
+function foo(){
+  var f = function() {
+      console.log("original");
+  }
+
+  function f() {
+      console.log("duplicate");
+  }
+
+  f();
+}
+
+foo(); //?
+  </code></pre>
+                                          </div>
+                                      </div>
+                                    </div>
+                                >
                               </section> 
-                               <section>
-                                <h2>quiz</h2>							
-                                <pre><code>
-                  var a = 1;
-                  
-                  function bar(){
-                    a = 10;
-                    return;
-                    var a = 7;
-                  }
-                  
-                  bar();
-                  
-                  console.log(a);//?
-                                </code></pre>
-                                <a href="http://davidshariff.com/blog/what-is-the-execution-context-in-javascript/">A Word On Hoisting</a>
-                              </section>
-                              <section>
-                                <h3></h3>
-                                <pre><code>var a = 1;
-                  
-                  function bar(){
-                    a = 10;
-                    return;
-                  }</code></pre>				
-                                <pre class="fragment"><code>function bar(){
-                    a = 10;
-                    return;
-                    var a = 1;
-                  }</code></pre>				
-                                <pre class="fragment"><code>function bar(){
-                    var a;
-                    a = 10;
-                    return;
-                    a = 1;
-                  }</code></pre>	
-                                <a href="http://javascriptweblog.wordpress.com/2010/07/06/function-declarations-vs-function-expressions/">Angus Croll: function declaration</a>
-                              </section>
-                              <section>
-                                <pre><code>function bar(){
-                    var a;
-                    a = 10;
-                    console.log(a);
-                    return;
-                    a = 1;
-                  }
-                  bar(); //10</code></pre>
-                                <pre><code>
-                  var a = 1;
-                  
-                  function bar(){
-                    a = 10;
-                    return;
-                    var a = 7;
-                  }
-                  
-                  bar();
-                  
-                  console.log(a);//?
-                                </code></pre>
-                                <h4 class="fragment">Answer: 1</h4>
-                              </section> 
+                              
+                              
+                             
                               
         <section>
           <!--.wrap = container (width: 90%) -->
