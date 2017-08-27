@@ -271,24 +271,165 @@
         <section>
           <!--.wrap = container (width: 90%) -->
           <div class="wrap size-50 aligncenter">
-            <h2><strong>Why WebSlides?</strong></h2>
-            <p class="text-intro"><a href="demos/why-webslides.html" title="Why WebSlides?">Presentations</a>, <a href="demos/landings.html" title="Landings">landings</a>, <a href="demos/portfolios.html" title="Portfolios">portfolios</a>, and <a href="demos/longforms.html" title="Longforms">longforms</a>.</p>
+            <h2><strong>Why Code JavaScript?</strong></h2>
+            <p class="text-intro"><a href="">Why not frameworks like angular, react or vue.</a></p>
             <div class="bg-white shadow">
               <ul class="flexblock reasons">
                 <li>
-                  <h2>An opportunity to engage.</h2>
-                  <p>WebSlides is about good karma. This is about telling the story, and sharing it in a beautiful way. HTML and CSS as narrative elements.</p>
+                  <h2>You need JavaScript to use the Framework.</h2>
+                  <p>Just only a framework will not a build an application. To put logic, functionalities, you have to use javascript.</p>
                 </li>
                 <li>
-                  <h2>Work better, faster.</h2>
-                  <p>Designers, marketers, and journalists can now focus on the content. Simply <a href="demos/index.html" title="WebSlides Demos">choose a demo</a> and customize it in minutes.</p>
+                  <h2>Magic will through you in trouble.</h2>
+                  <p>Magic is good to do simple things. For large application, magic in frameworks will through you under the bus.</p>
                 </li>
+                <li>
+                    <h2>Feel why it works not how it works.</h2>
+                    <p>Making things working and understanding .</p>
+                  </li>
               </ul>
             </div>
             <!-- .end .bg-white shadow -->
           </div>
           <!-- .end .wrap -->
         </section>
+        <section>
+          <h1>Function</h1>
+          <img src="images/function.jpg" alt="">
+        </section>
+         <section>
+            <div class="wrap">
+                <h1 class="size-50 aligncenter">Create a function</h1>
+                <hr>
+                <div class="grid">
+                  <div class="column">
+                    <h4>declaration</h4>
+                    <pre><code>
+function foo(a, b){
+    return a * b;
+}
+          </code></pre>
+                  </div>
+                  <div class="column">
+                    <h4>expression - anonymous</h4>
+<pre class="fragment"><code>
+var foo = function(a, b){
+  return a * b;
+}
+              </code></pre>
+                  </div>
+                  <div class="column">
+                    <h4>expression - named</h4>
+<pre class="fragment"><code>
+var foo = function boo(a, b){
+  console.log(boo);
+  return a * b;
+}
+  </code></pre>
+                  </div>
+                </div>
+                <hr>
+                <pre class="fragment"><code>
+var foo = new Function("a", "b", "return a * b;");
+          </code></pre>
+              </div>
+          <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions">MDN: function</a>
+        </section> 
+        <section>
+          <div class="wrap">
+              <h1 class="aligncenter">function in JS</h1>
+              <hr>
+              <div class="grid sms">
+                <div class="column">
+                    <pre><code class="hljs javascript">
+function add(a,b){
+  return a + b;
+}
+
+console.log(add.length); //2
+                  </code></pre>
+                   
+                </div>
+                <div class="column">
+                    
+                    <ol>
+                        <li><h4>function like an object</h4></li>
+                        <li><h4>could have property</h4></li>
+                        <br/>
+                        <li><h4>have a length property</h4></li>
+                        <li><h4>length is number of parameters</h4></li>
+                      </ol>
+                </div>
+              </div>
+            </div>
+        </section>
+        <section>
+            <div class="wrap">
+                <h1 class="aligncenter">function in JS</h1>
+                <hr>
+                <div class="grid sms">
+                  <div class="column">
+                      <pre><code class="hljs javascript">
+function noFunc(){
+}
+  
+console.log(noFunc());//undefined
+                    </code></pre>
+                     
+                  </div>
+                  <div class="column">
+                      <ol>
+                          <li><h4>always return</h4></li>
+                         <li><h4>default return is <code>undefined</code></h4></li>
+                         <br/>
+                         <li><h4>"new" for constructor returns <code>this</code></h4></li>
+                         <li><h4>arguments - is an array like object</h4></li> 
+                       </ol>
+                  </div>
+                </div>
+              </div>
+          </section>
+          <section>
+              <div class="wrap">
+                  <h4 class="aligncenter">"new" for constructor returns <code>this</code></h4>
+                  <hr>
+                  <div class="grid">
+                    <div class="column">
+                        <pre><code class="hljs javascript">
+function add(a,b){
+  return a+b;
+}
+
+var b = add(2,3);
+console.log(b); //5
+                      </code></pre>
+                    </div>
+                    <div class="column">
+                        <pre><code class="hljs javascript">
+function add(a,b){
+  return a+b;
+}
+
+var b = new add(2,3);
+console.log(b); //add{}
+                      </code></pre>
+                      </div>
+                      <div class="column">
+                          <pre><code class="hljs javascript">
+function add(a,b){
+  this.a = a;
+  this.b = b;
+  return a+b;
+}
+
+var b = new add(2,3);
+console.log(b); 
+//add{a:2, b:3}
+                        </code></pre>
+                        </div>
+                  </div>
+                </div>
+            </section>
         <section>
           <!--.wrap = container (width: 90%) -->
           <div class="wrap">
@@ -323,7 +464,7 @@ function b(){
                   <figure>
                     <img alt="Thumbnail Why WebSlides?" src="https://webslides.tv/static/images/demos-why.png">
                     <figcaption>
-                      <h2>Why WebSlides?</h2>
+                      <h2>Why Core JavaScript?</h2>
                     </figcaption>
                   </figure>
                 </a>
