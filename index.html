@@ -1045,50 +1045,323 @@ b(); //3
                              <h6 class="fragment">a and b has separate private i to remember position</h6> 
                           </section>
                            <section>
-                            <h2>closure creation</h2>
-                            <img src= "static/images/closure1.png" alt="">
-                            <br>
-                            <span class="fragment">private variable</span>
-                            <span class="fragment">, save state</span>
-                            <span class="fragment">, create encapsulation</span>
-                            <h6 class="fragment">every assignment of counter creates new closure</h6>
+                            <div class="wrap">
+                                <img class="alignright size-50" src="static/images/closureTwoFunc.png" alt="iPhone">
+                                <div>
+                                    <h2>Multiple Closure</h2>
+                                    <ul>
+                                        <li>
+                                          <h5>Every assignment of counter function creates new closure</h5>
+                                        </li>
+                                      <li>
+                                        <h4>Private variable</h4>
+                                      </li>
+                                      <li>
+                                        <h4>Save state</h4>
+                                      </li>
+                                      <li>
+                                        <h4>Create encapsulation</h4>
+                                      </li>
+                                    </ul>
+                                </div>
+                              </div>
                           </section> 
+                          
                           <section>
-                            <h2>multiple closure</h2>
-                            <pre><code>
-              var b = counter();
-              b(); //0
-              b(); //1
-              b(); //2
-              b(); //3</code></pre>
-                            <img  class="fragment" src= "static/images/closureTwoFunc.png" alt="">
-                            <p class="fragment">each closure have separate private variable</p>
-                          </section>
-                          <section>
-                            <h2>Who care?</h2>
+                            <h1>Who cares?</h1>
+                            <hr>
                             <ol>
-                              <li>garbage collector can not claim the variable you are holding</li>
-                              <li class="fragment">How many closure you are creating</li>
+                              <li><h4><strong>Garbage collector:</strong> can not claim the variable you are holding.</h4></li>
+                              <li><h4>How many closure are you creating?</h4></li>
                               <br>
-                              <li class="fragment">variable reference: Dont use excessively large private variable</li>
-                              <li class="fragment">Unnecessary closure affect processing speed and memory consumption</li>
+                              <li><h4>Variable reference: Don't use excessively large private variable</h4></li>
+                              <li><h4>Unnecessary closure affect processing speed and memory consumption</h4></li>
                             </ol>
                             <br>
                             <br>
                             <br>
-                            <a href="http://coding.smashingmagazine.com/2012/11/05/writing-fast-memory-efficient-javascript/">Addy Osmani: memory efficient JS</a>
+                            <br>
+                            
                           </section>
                           <section>
-                            <h2>Summary</h2>
+                            <h1>Closure in Summary</h1>
+                            <hr>
                             <ul>
-                              <li>function inside another function</li>
-                              <li class="fragment">doesn't have to return function</li>
-                              <li class="fragment">Refer to variables, parameters outside of current scope</li>
-                              <li class="fragment">read and write outer scope variable</li>
-                              <li class="fragment">each closure has separate private variable</li>
+                              <li><h4>function inside another function</h4></li>
+                              <li><h4>Doesn't have to return function</h4></li>
+                              <li><h4>Refer to variables, parameters outside of current scope</h4></li>
+                              <li><h4>Read and write outer scope variable</h4></li>
+                              <li><h4>Each closure has separate private variable</h4></li>
                             </ul>
-                            <a href="http://javascript-reference.info/javascript-closures-for-dummies.htm">Closure for dummies</a>
-                          </section>         
+                            <br>
+                            <br>
+                            <a href="http://www.thatjsdude.com/jsConcepts/concepts/scope.html">Closure for dummies</a>
+                          </section>      
+                          <section>
+                              <h1>so far...</h1>
+                              <hr>
+                              <ol>
+                                <li><h4>function could have properties</h4></li>
+                                <li><h4>Two stages of function call: Creation, Execution</h4></li>
+                                <br>
+                                <li><h4>ExecutionContext: Scope chain, variableObj, this</h4></li>
+                                <li><h4>Jackie Chan, Kim Kardashian, super bowl</h4></li>
+                                <br>
+                                <li><h4>Scope chain: collection of current + all parent Execution context</h4></li>
+                                <li><h4>Closure: save states and create encapsulation</h4></li>
+                                
+                              </ol>
+                            </section>   
+                            <section>
+                                 <div class="wrap">
+                                    <h1 class="aligncenter">Hoisting</h1>
+                                    <ul class="flexblock gallery">
+                                      <li>
+                                        <a href="#">
+                                          <figure>
+                                            <img alt="Thumbnail" src="static/images/hoist.jpg">
+                                            <figcaption>
+                                              <h2>Hoisting in factory</h2>
+                                              <p>But I am a developer</p>
+                                            </figcaption>
+                                          </figure>
+                                        </a>
+                                      </li>
+                                      <li>
+                                        <a href="#">
+                                          <figure>
+                                            <img alt="Thumbnail " src="static/images/hoistBike.jpg">
+                                            <figcaption>
+                                              <h2>Hoisting in winter</h2>
+                                              <p>Don't remind me that</p>
+                                            </figcaption>
+                                          </figure>
+                                        </a>
+                                      </li>
+                                      <li>
+                                        <a href="#">
+                                          <figure>
+                                            <img alt="Thumbnail" src="static/images/hoistAnt.jpg">
+                                            <figcaption>
+                                              <h2>Ant man!</h2>
+                                              <p>Now I can do this as well :)</p>
+                                            </figcaption>
+                                          </figure>
+                                        </a>
+                                      </li>
+                                    </ul>
+                                  </div>
+                              </section>
+                              <section>
+                                  <div class="wrap">
+                                      <h1 class="aligncenter">Hoist a variable</h1>
+                                      <hr>
+                                      <div class="grid">
+                                        <div class="column">
+                                            <pre><code class="hljs javascript">
+function foo(){
+  console.log(a);
+  var a = 42;
+}
+foo();
+//undefined
+                                          </code></pre>
+                                        </div>
+                                        <div class="column">
+                                            <pre><code class="hljs javascript">
+function foo(){
+  var a;
+  console.log(a);
+  //do something
+  a = 42;
+}</code></pre>
+                                          </div>
+                                          <div class="column">
+                                              <pre><code class="hljs javascript">
+ExecutionContext: {
+  scopeChain : { ... },
+  variableObject: { ... }
+}
+                                            </code></pre>
+                                            </div>
+                                      </div>
+                                    </div>
+                              </section>
+                              <section>
+                                <div class="wrap">
+                                    <h1 class="aligncenter">Just Looping</h1>
+                                    <hr>
+                                    <div class="grid">
+                                      <div class="column">
+                                          <pre><code class="hljs javascript">
+function justLooping() {
+  
+  for (var i = 0; i &lt; 5; i++) {
+      var twice = i*2;
+  }
+  console.log(i);
+  console.log(twice);
+}
+
+justLooping();// 5 8
+
+                                        </code></pre>
+                                      </div>
+                                      <div class="column">
+                                          <pre><code class="hljs javascript">
+function justLooping() {
+  var i;
+  var twice;
+  for (i = 0; i &lt; 5; i++) {
+      twice = i*2;
+  }
+  console.log(i);
+  console.log(twice);
+}
+
+justLooping(); // 5 8
+
+</code></pre>
+                                        </div>
+                                    </div>
+                                  </div>
+                              </section>
+                              <section>
+                                <h4>let's look into inner function</h4>
+                                <pre><code>
+                  function outer(){
+                    inner();
+                  
+                    //do something else 	
+                    
+                    function inner(){
+                      console.log('inside inner function');
+                    }  
+                  }
+                  
+                  outer(); // inside inner function
+                                </code></pre>
+                                <pre class="fragment"><code>
+                  function outer(){
+                    function inner(){
+                      console.log('inside inner');
+                    }
+                  
+                    //do something
+                    
+                    inner();
+                  }
+                                </code></pre>							
+                                <a href="http://www.kenneth-truyers.net/2013/04/20/javascript-hoisting-explained/">JS hoisting explained</a>
+                              </section>
+                              <section>
+                                <h2>function expression</h2>
+                                <pre><code>
+                  function outer(){
+                    inner();
+                    //do something else 	
+                    var inner = function(){
+                      console.log('inside inner');
+                    }  
+                  }
+                                </code></pre>
+                                <pre class="fragment"><code>
+                  outer();//TypeError: undefined is not a function
+                                </code></pre>
+                                <pre class="fragment"><code>
+                  function outer(){
+                    var inner;
+                    inner();
+                    //do something else 	
+                    inner = function(){
+                      console.log('inside inner');
+                    }  
+                  }</code></pre>
+                              </section>
+                               <section>
+                                <h2>function hoisting</h2>
+                                <pre><code>
+                  function foo(){
+                    var f = function() {
+                        console.log("original");
+                    }
+                  
+                    function f() {
+                        console.log("duplicate");
+                    }
+                  
+                    f();
+                  }
+                  
+                  foo(); //?
+                                </code></pre>
+                                <pre class="fragment"><code>
+                  foo(); //original;
+                                </code></pre>
+                              </section> 
+                               <section>
+                                <h2>quiz</h2>							
+                                <pre><code>
+                  var a = 1;
+                  
+                  function bar(){
+                    a = 10;
+                    return;
+                    var a = 7;
+                  }
+                  
+                  bar();
+                  
+                  console.log(a);//?
+                                </code></pre>
+                                <a href="http://davidshariff.com/blog/what-is-the-execution-context-in-javascript/">A Word On Hoisting</a>
+                              </section>
+                              <section>
+                                <h3></h3>
+                                <pre><code>var a = 1;
+                  
+                  function bar(){
+                    a = 10;
+                    return;
+                  }</code></pre>				
+                                <pre class="fragment"><code>function bar(){
+                    a = 10;
+                    return;
+                    var a = 1;
+                  }</code></pre>				
+                                <pre class="fragment"><code>function bar(){
+                    var a;
+                    a = 10;
+                    return;
+                    a = 1;
+                  }</code></pre>	
+                                <a href="http://javascriptweblog.wordpress.com/2010/07/06/function-declarations-vs-function-expressions/">Angus Croll: function declaration</a>
+                              </section>
+                              <section>
+                                <pre><code>function bar(){
+                    var a;
+                    a = 10;
+                    console.log(a);
+                    return;
+                    a = 1;
+                  }
+                  bar(); //10</code></pre>
+                                <pre><code>
+                  var a = 1;
+                  
+                  function bar(){
+                    a = 10;
+                    return;
+                    var a = 7;
+                  }
+                  
+                  bar();
+                  
+                  console.log(a);//?
+                                </code></pre>
+                                <h4 class="fragment">Answer: 1</h4>
+                              </section> 
+                              
         <section>
           <!--.wrap = container (width: 90%) -->
           <div class="wrap">
