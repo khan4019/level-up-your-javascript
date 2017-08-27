@@ -292,7 +292,7 @@
         </section>
         <section>
           <h1>Function</h1>
-          <img src="images/function.jpg" alt="">
+          <img src="static/images/function.jpg" alt="">
         </section>
          <section>
             <div class="wrap">
@@ -735,6 +735,146 @@ ExecutionContext: {
                         <li class="fragment"><h4>Execute function</h4></li>
                       </ol>
                   </section>
+                  <section class="slide-bottom">
+                      <div class="wrap">
+                          <img class="alignright size-50" src="static/images/scope.jpg" alt="iPhone">
+                          <div class="content-center">
+                              <h1 class="">Scope</h1>
+                          </div>
+                        </div>
+                    </section>
+                    <section>
+                      <h2>JavaScript Scope</h2>
+                      <br>
+                      <br>
+                      <ul class="fragment">
+                          <li><h4>Global scope</h4></li>
+                          <br>
+                          <li class="fragment"><h4>Local scope</h4></li>
+                          <br>
+                          <li class="fragment"><h4>Block scope</h4></li>
+                      </ul>
+                    </section>
+        
+                    <section>
+                      <div class="wrap">
+                          <img class="alignright size-50" src="static/images/my Drawing/globe.png" alt="iPhone">
+                      </div>
+                    </section>
+        
+                    <section>
+                      <div class="wrap">
+                          <img class="alignright size-50" src="static/images/my Drawing/globeJackie.jpg" alt="iPhone">
+                      </div>
+                    </section>
+                    <section>
+                      <div class="wrap">
+                          <img class="alignright size-50" src="static/images/jackie.jpg" alt="iPhone">
+                      </div>
+                    </section>
+                    <section>
+                      <div class="wrap">
+                          <img class="alignright size-50" src="static/images/newYear.jpg" alt="iPhone">
+                      </div>
+                    </section>
+                    <section>
+                      <div class="wrap">
+                          <img class="alignright size-50" src="static/images/my Drawing/globeStars.jpg" alt="iPhone">
+                      </div>
+                    </section>
+                    
+                    <section>
+                      <div class="wrap">
+                          <img class="alignright size-50" src="static/images/globalscope.png" alt="iPhone">
+                          <div>
+                              <h2>global scope</h2>
+                              <pre style="width:40%"><code>
+var a = 2;
+function b(){
+  console.log(a);
+}
+                              </code></pre>
+                          </div>
+                        </div>
+                    </section>
+                    <section>
+                      <h1>Local Scope</h1>
+                    </section>
+                    <section>
+                      <img  class="fullScreenImage" src="static/images/my Drawing/gglMap.jpg" alt="">
+                    </section>
+                    <section>
+                      <div class="wrap">
+                          <img class="alignright size-50" src="static/images/kd.jpg" alt="iPhone">
+                      </div>
+                    </section>
+                    <section>
+                      <div class="wrap">
+                          <img class="alignright size-50" src="static/images/localStar.jpg" alt="iPhone">
+                      </div>
+                    </section>
+                    <section>
+                      <h2>local/function scope</h2>
+                      <pre><code>function b(){
+           var d = 21;
+           console.log(d);
+        }
+        b();</code></pre>
+        <pre class="fragment"><code>
+        console.log(d); //ReferenceError: d is not defined
+                        </code></pre>
+                      <div class="fragment">
+                        <ol>
+                          <li>function call creates execution context (before running any code) </li>
+                          <li class="fragment">First thing created is the scope chain</li>
+                          <li class="fragment">create arguments, variable, determine <code>this</code></li>
+                          <li class="fragment">execute function</li>
+                        </ol>
+                      </div>
+                                    <br>
+                      <a href="http://davidshariff.com/blog/javascript-scope-chain-and-closures/">JS scope chain</a>
+                    </section>
+                    <section>
+                      <div class="wrap">
+                          <img class="alignright size-50" src="static/images/localScope.png" alt="iPhone">
+                      </div>
+                    </section>
+                    <section>
+                      
+                      <div class="wrap">
+                          <img class="alignright size-50" src="static/images/multiScope.png" alt="iPhone">
+                          <div>
+                              <h2>multi execution context</h2>
+                              <pre style="width:40%"><code>
+var a = 2;
+function b(){ console.log(a); }
+function c(){ console.log(a); }
+b();
+c();
+                              </code></pre>
+                          </div>
+                        </div>
+                    </section>
+                    <section>
+                      <h2>local events</h2>
+                      <div class="wrap">
+                          <img class="alignright size-50" src="static/images/football.jpg" alt="iPhone">
+                      </div>
+                    </section>
+                    <section>
+                      <div class="wrap">
+                          <img class="alignright size-50" src="static/images/localEvents.jpg" alt="iPhone">
+                      </div>
+                    </section>
+                    <section>
+                      <h2>nested function (closure)</h2>
+                              <div class="wrap">
+                                  <img class="alignright size-50" src="static/images/closureScope.png" alt="iPhone">
+                              </div>
+                    </section>
+                    <section>
+                      
+                    </section>
         <section>
           <!--.wrap = container (width: 90%) -->
           <div class="wrap">
