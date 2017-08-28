@@ -115,43 +115,6 @@
         </section>
         <section>
           <div class="wrap">
-            <h2 class="aligncenter">ul.flexblock.plans.blink</h2>
-            <ul class="flexblock plans blink">
-              <li>
-                <a href="#" title="Register">
-                  <h2>Basic</h2>
-                  <div>
-                    <span class="price">Free</span>
-                    <p>Good karma. Just essential features. 100% customizable. Make it yours.</p>
-                    <span class="button ghost">Select</span>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a href="#" title="Purchase">
-                  <h2>Medium</h2>
-                  <div>
-                    <span class="price"><sup>$</sup>4,99 <sup>/month</sup></span>
-                    <p>Clean markup with popular naming conventions. Minimum effort.</p>
-                    <span class="button radius">Buy Now</span>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a href="#" title="Purchase">
-                  <h2>Premium <sup>(save 20%)</sup></h2>
-                  <div>
-                    <span class="price"><sup>$</sup>40 <sup>/year</sup></span>
-                    <p>Prototype faster. Create landings and portfolios. Unlimited projects.</p>
-                    <span class="button ghost">Select</span>
-                  </div>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </section>
-        <section>
-          <div class="wrap">
             <h2>Agenda</h2>
             <ul class="flexblock features">
               <li>
@@ -160,7 +123,7 @@
                     <span>&rarr;</span>
                     how function works
                   </h2>
-                   arrow function, presenter...
+                   Scope, hoisting, closure
                 </div>
               </li>
               <li>
@@ -171,27 +134,29 @@
                     </svg>
                     bind, call, apply
                   </h2>
-                  what you can bind.
+                  explicitly set value of this.
                 </div>
               </li>
               <li>
                 <div>
                   <h2>
-                    <svg class="fa-clock-o">
-                      <use xlink:href="#fa-clock-o"></use>
+                    <svg class="fa-redo">
+                      <use xlink:href="#fa-redo"></use>
                     </svg>
-                    Slide Counter
+                    Event Loop
                   </h2>
-                  Current/Total number.
+                  Stack, Heap, Event loop.
                 </div>
               </li>
               <li>
                 <div>
                   <h2>
-                    <span>40<sup>+</sup></span>
-                    Beautiful Components
+                      <svg class="fa-binoculars">
+                          <use xlink:href="#fa-binoculars"></use>
+                        </svg>
+                    Promise
                   </h2>
-                  Covers, cards, quotes...
+                  blocking, non-blocking...
                 </div>
               </li>
               <li>
@@ -200,18 +165,20 @@
                     <svg class="fa-text-height">
                       <use xlink:href="#fa-text-height"></use>
                     </svg>
-                    Vertical Rhythm
+                    this
                   </h2>
-                  Use multiples of 8.
+                  8 different places.
                 </div>
               </li>
               <li>
                 <div>
                   <h2>
-                    <span>500<sup>+</sup></span>
-                    SVG Icons
+                    <svg class="fa-random">
+                        <use xlink:href="#fa-random"></use>
+                    </svg>
+                    Inheritance
                   </h2>
-                  Font Awesome Kit.
+                  Prototype chain.
                 </div>
               </li>
             </ul>
@@ -270,8 +237,8 @@
 				</section>
         <section>
           <div class="wrap size-50 aligncenter">
-            <h2><strong>Why Code JavaScript?</strong></h2>
-            <p class="text-intro"><a href="">Why not frameworks like angular, react or vue.</a></p>
+            <h2><strong>Why Core JavaScript?</strong></h2>
+            <p class="text-intro"><a href="">You are still coding JavaScript and your friendly framework will not be around forever.</a></p>
             <div class="bg-white shadow">
               <ul class="flexblock reasons">
                 <li>
@@ -310,7 +277,7 @@ function foo(a, b){
                   <div class="column">
                     <h5>expression - anonymous</h5>
                     <br>
-<pre class="fragment"><code>
+<pre><code>
 var foo = function(a, b){
   return a * b;
 }
@@ -318,7 +285,7 @@ var foo = function(a, b){
                   </div>
                   <div class="column">
                     <h4>expression - named</h4>
-<pre class="fragment"><code>
+<pre><code>
 var foo = function boo(a, b){
   console.log(boo);
   return a * b;
@@ -326,8 +293,7 @@ var foo = function boo(a, b){
   </code></pre>
                   </div>
                 </div>
-                <hr>
-                <pre class="fragment"><code>
+                <pre><code>
 var foo = new Function("a", "b", "return a * b;");
           </code></pre>
               </div>
@@ -372,7 +338,7 @@ function add(a,b){
   return a+b;
 }
   
-console.log(add(,3));//5
+console.log(add(2,3));//5
                                               </code></pre>
                       <pre><code class="hljs javascript">
 function noFunc(){
@@ -384,8 +350,8 @@ console.log(noFunc());//undefined
                   </div>
                   <div class="column">
                       <ol>
-                          <li><h4>always return</h4></li>
-                         <li><h4>default return is <code>undefined</code></h4></li>
+                          <li><h4>Always return</h4></li>
+                         <li><h4>Default return is <code>undefined</code></h4></li>
                          <br/>
                          
                        </ol>
@@ -490,11 +456,9 @@ foo(2,3);
                     <ul class="flexblock reasons">
                       <li>
                         <h2>Creation Stage.</h2>
-                        <!-- <p>Just only a framework will not a build an application. To put logic, functionalities, you have to use javascript.</p> -->
                       </li>
                       <li>
                         <h2>Execution Stage.</h2>
-                        <!-- <p>Magic is good to do simple things. For large application, magic in frameworks will through you under the bus.</p> -->
                       </li>
                     </ul>
                   </div>
@@ -502,10 +466,10 @@ foo(2,3);
               </section>
               <section>
                   <div class="wrap">
-                    <h2 class="aligncenter">Creation Stage</h2>
+                    <h2 class="aligncenter"><strong>Creation Stage</strong></h2>
                     <ul>
-                        <li class="fragment"><h4>Each function call creates own ExectuionContext</h4></li>
-                        <li class="fragment"><h4>Roughly an 'environment' where function executes</h4></li>
+                        <li><h4>Each function call creates own ExectuionContext</h4></li>
+                        <li><h4>Roughly an 'environment' where function executes</h4></li>
                     </ul>
                     <br>
                     <br>
@@ -524,7 +488,7 @@ ExecutionContext: {}
                         <a href="#" title="Purchase">
                           <h2>Second</h2>
                           <div>
-                              <pre class="fragment"><code>
+                              <pre class=""><code>
 ExecutionContext: {
     scopeChain: { ... }
 }
@@ -536,7 +500,7 @@ ExecutionContext: {
                         <a href="#" title="Purchase">
                           <h2>Third</h2>
                           <div>
-                              <pre class=""><code>
+                              <pre><code class="hljs javascript">
 ExecutionContext: {
   scopeChain : { ... },
   variableObject: { ... }
@@ -551,12 +515,8 @@ ExecutionContext: {
                 <section class="slide-top">
                   <div class="content-center">
                       <h2>Creation stage</h2>
-                      <ol>
-                       <li>
-                          <h4>create arguments variable</h4>
-                        </li>
-                      </ol>
-                      <pre class="fragment"><code>
+                      <p>create arguments variable</p>
+                      <pre><code>
 ExecutionContext: {
     scopeChain : { ... },
     variableObject: {
@@ -597,7 +557,7 @@ ExecutionContext: {
     variableObject: {
         arguments:{
           0 : 2,
-            1 : 3,
+          1 : 3,
           length : 2
         },
         a : 2,
@@ -605,11 +565,10 @@ ExecutionContext: {
     }
 }
                     </code></pre>
-                    <pre class="fragment"><code>
+                    <pre><code>
 function foo(a, b){
     return a * b;
 }
-
 foo(2,3);
                     </code></pre>  
                 </div> 
@@ -618,13 +577,15 @@ foo(2,3);
                   <div class="content-center">
                       <h2>inner variable, inner function</h2>
                       <pre><code>
-    function foo(a, b){
-        function inner(){
-          console.log(a);
-        }
-        var c = a + b;
-        return a * b;
-    }
+function foo(a, b){
+    
+  function inner(){
+    console.log(a);
+  }
+  inner();
+  var c = a * b;
+  return c;
+}
                       </code></pre>
                   </div>
                 </section>
@@ -636,10 +597,11 @@ foo(2,3);
                             <pre><code>
 function foo(a, b){
   function inner(){
-    console.log(a);
+    console.log(c);
   }
-  var c = a + b;
-  return a * b;
+  inner();
+  var c = a * b;
+  return c;
 }
                             </code></pre>
                           </div>
@@ -651,7 +613,7 @@ ExecutionContext: {
   variableObject: {
       arguments:{
         0 : 2,
-          1 : 3,
+        1 : 3,
         length : 2
       },
       a : 2,
@@ -669,7 +631,7 @@ ExecutionContext: {
                   <div class="content-center">
                       <h2>this</h2>
                       <h4>object, “owner” of the function being executed</h4>
-                                    <pre class="fragment"><code>
+                                    <pre><code>
 ExecutionContext: {
     scopeChain : { ... },
     variableObject: { ... },
@@ -680,18 +642,18 @@ ExecutionContext: {
                 </section>
                 <section class="slide-top">
                     <div class="content-center">
-                        <pre class="fragment"><code>
+                        <pre><code>
 ExecutionContext: {
     scopeChain : { ... },
     variableObject: {
         arguments:{
           0 : 2,
-            1 : 3,
+          1 : 3,
           length : 2
         },
         a : 2,
         b : 3,
-        ttt : pointer to function ttt(),
+        inner : pointer to function inner(),
         c : undefined,
     },
     this: { ... }
@@ -712,16 +674,16 @@ ExecutionContext: {
                     <h2>Execution Context and Scope</h2>
                     <ul>
                         <li><h4>A concept in the language spec</h4></li>
-                        <li class="fragment"><h4>Roughly an 'environment' where function executes</h4></li>
-                        <li class="fragment"><h4>It holds: scope, scope chain, arguments, variables</h4></li>
-                        <li class="fragment"><h4>Each function call creates own ExectuionContext</h4></li>
+                        <li><h4>Roughly an 'environment' where function executes</h4></li>
+                        <li><h4>It holds: scope, scope chain, arguments, variables</h4></li>
+                        <li><h4>Each function call creates own ExectuionContext</h4></li>
                     </ul>
-                    <div class="fragment">
+                    <div>
                       <hr>
                       <ul>
-                          <li class=""><h4>Scope is static.</h4></li>
-                          <li class="fragment"><h4>Set when function is created and never changes</h4></li>
-                          <li class="fragment"><h4>scope is a property of the function</h4></li>
+                          <li class=""><h4>Scope is static</h4></li>
+                          <li><h4>Set when function is created and never changes</h4></li>
+                          <li><h4>Scope is a property of the function</h4></li>
                       </ul>
                     </div>
                     <div style="display:none">
@@ -734,9 +696,9 @@ ExecutionContext: {
                     <h2>Execution stage</h2>
                     <ol>
                       <li><h4>Start reading the code from first line</h4></li>
-                      <li class="fragment"><h4>Assign values</h4></li>
-                      <li class="fragment"><h4>If need to access variable, it read from ExecutionContext</h4></li>
-                      <li class="fragment"><h4>Until hits first return or body ends</h4></li>
+                      <li><h4>Assign values</h4></li>
+                      <li><h4>If need to access variable, it read from ExecutionContext</h4></li>
+                      <li><h4>Until hits first return or body ends</h4></li>
                     </ol>
                   </section>
                   <section>
@@ -745,12 +707,12 @@ ExecutionContext: {
                         <li><h4>Two stages of function: creation, execution</h4></li>
                         <li><h4>Creates execution context (before running any code) </h4></li>
                         <br>
-                        <li class="fragment"><h4>First thing created is the scope chain</h4></li>
-                        <li class="fragment"><h4>Then it creates variableObject</h4></li>
+                        <li><h4>First thing created is the scope chain</h4></li>
+                        <li><h4>Then it creates variableObject</h4></li>
                         <br>
-                        <li class="fragment"><h4>Create arguments, variable, determine <code>this</code></h4></li>
+                        <li><h4>Create arguments, variable, determine <code>this</code></h4></li>
                         <br>
-                        <li class="fragment"><h4>Execute function</h4></li>
+                        <li><h4>Execute function</h4></li>
                       </ol>
                   </section>
                   <section class="slide-bottom">
@@ -765,13 +727,13 @@ ExecutionContext: {
                       <h2>JavaScript Scope</h2>
                       <br>
                       <br>
-                      <ul class="fragment">
+                      <ul>
                           <li><h4>Global scope</h4></li>
                           <br>
-                          <li class="fragment"><h4>Local scope</h4></li>
+                          <li><h4>Local scope</h4></li>
                           <br>
-                          <li class="fragment"><h4>Block scope</h4></li>
-                          <li class="fragment">Lexical scope</li>
+                          <li><h4>Block scope</h4></li>
+                          <li>Lexical scope</li>
                       </ul>
                     </section>
         
@@ -835,9 +797,11 @@ function b(){
                     </section>
                     <section>
                         <div class="wrap">
+                            <h2 class="aligncenter">Local/function scope</h2>
+                            <hr>
                             <div class="grid vertical-align">
                               <div class="column">
-                                  <h2>Local/function scope</h2>
+                                  
                                   <ol>
                                     <li>
                                       <h4>function call creates execution context (before running any code)</h4>
@@ -855,13 +819,14 @@ function b(){
                               </div>
                               <div class="column">
                                   <pre><code>
-function b(){
-  var d = 21;
-  console.log(d);
+function usa(){
+  var kim = 21;
+  console.log(kim);
 }
-b();
+usa(); // 21
 
-console.log(d); //ReferenceError: d is not defined
+console.log(kim); 
+//Uncaught ReferenceError: kim is not defined
                                   </code></pre>
                                 </div>
                             </div>
@@ -963,7 +928,7 @@ console.log(twice);
                                       <h4>const: can not be reassigned.</h4>
                                     </li>
                                     <li>
-                                      <h4>can be recreated inside a loop</h4>
+                                      <h4>const can be recreated inside a loop</h4>
                                     </li>
                                   </ol>
                               </div>
@@ -1004,21 +969,16 @@ function counter(){
                                                         </code></pre>
                                   </div>
                                   <div class="column">
-                                      <pre class="fragment"><code>
+                                      <pre><code>
 var a = counter();
 
 a;
 //function (){
 //       return i++;
 //    }
-                                                        </code></pre>
-                                    </div>
-                                    <div class="column sms">
-                                        <pre class="fragment"><code>
+
 a(); //0
-
 a(); //1
-
 a(); //2
                                         </code></pre>
                                     </div>
@@ -1026,10 +986,12 @@ a(); //2
                             </div>
                             </section>
                           <section>
+                              <h2>Lexical scope/Scope Chain</h2>
+                              <hr>
                            <div class="wrap">
                               <img class="alignright size-50" src="static/images/closureOneFunc0.png" alt="iPhone">
                               <div>
-                                  <h2>Lexical scope</h2>
+                                  
                                   <pre style="width:40%"><code>
 function counter(){
   var i = 0;
@@ -1062,14 +1024,14 @@ function counter(){
                               <div class="wrap">
                                   <div class="grid vertical-align">
                                     <div class="column">
-                                        <pre class="fragment"><code>
+                                        <pre><code>
 var a = counter();
 a(); //0
 a(); //1
 a(); //2
 a(); //3
 a(); //4
-                                          </code></pre>
+a(); //5</code></pre>
                                     </div>
                                     <div class="column">
                                         <pre><code>
@@ -1084,7 +1046,7 @@ b(); //3
                                     </div>
                                   </div>
                                 </div>
-                             <h6 class="fragment">a and b has separate private i to remember position</h6> 
+                             <h6>a and b has separate private i to remember position</h6> 
                           </section>
                            <section>
                             <div class="wrap">
@@ -1157,6 +1119,7 @@ b(); //3
                             <section>
                                  <div class="wrap">
                                     <h1 class="aligncenter">Hoisting</h1>
+                                    <hr>
                                     <ul class="flexblock gallery">
                                       <li>
                                         <a href="#">
@@ -1201,28 +1164,35 @@ b(); //3
                                       <div class="grid">
                                         <div class="column">
                                             <pre><code class="hljs javascript">
-function foo(){
-  console.log(a);
-  var a = 42;
+function foo(a, b){
+  
+  function inner(){
+    console.log(a);
+  }
+
+  inner();
+  
+  var c = a * b;
+  return c;
 }
-foo();
-//undefined
                                           </code></pre>
                                         </div>
-                                        <div class="column">
-                                            <pre><code class="hljs javascript">
-function foo(){
-  var a;
-  console.log(a);
-  //do something
-  a = 42;
-}</code></pre>
-                                          </div>
+                                        
                                           <div class="column">
                                               <pre><code class="hljs javascript">
 ExecutionContext: {
   scopeChain : { ... },
-  variableObject: { ... }
+  variableObject: {
+      arguments:{
+        0 : 2,
+        1 : 3,
+        length : 2
+      },
+      a : 2,
+      b : 3,
+      inner : pointer to function inner,
+      c : undefined
+  }
 }
                                             </code></pre>
                                             </div>
@@ -1278,7 +1248,7 @@ justLooping(); // 5 8
 function outer(){
   inner();
 
-  //do something else 	
+  
   
   function inner(){
     console.log('inside inner function');
@@ -1297,7 +1267,7 @@ function outer(){
 
   inner();
 
-  //do something
+ 
 }
 
 outer();  
@@ -1315,13 +1285,14 @@ outer();
                                             <pre><code class="hljs javascript">
 function outer(){
   inner();
-  //do something else 	
+  	
   var inner = function(){
     console.log('inside inner');
   }  
 }
 
-outer();//Uncaught TypeError: inner is not a function
+outer();
+//Uncaught TypeError: inner is not a function
 
                                           </code></pre>
                                         </div>
@@ -1330,13 +1301,14 @@ outer();//Uncaught TypeError: inner is not a function
 function outer(){
   var inner;
   inner();
-  //do something else 	
+  	
   inner = function(){
     console.log('inside inner');
   }  
 }
 
-outer();//Uncaught TypeError: inner is not a function 
+outer();
+//Uncaught TypeError: inner is not a function 
   </code></pre>
                                           </div>
                                       </div>
@@ -1578,31 +1550,12 @@ class User {
                                     </div>
                               </section>
                               <section>
-                                  <div class="wrap">
-                                      <h2 class="aligncenter">template two column</h2>
-                                     <div class="grid">
-                                        <div class="column">
-                                            <pre><code class="hljs javascript">
-
-
-                                          </code></pre>
-                                        </div>
-                                        <div class="column">
-                                            <pre><code class="hljs javascript">
-
-  </code></pre>
-                                          </div>
-                                      </div>
-                                    </div>
-                              </section>
-                             
-                              
-                              <section>
                                    <img src="static/images//this.png" alt="">
                                 </section>
                                 <section>
                                     <div class="wrap">
                                         <h2 class="aligncenter">What is this?</h2>
+                                        <hr>
                                        <div class="grid">
                                           <div class="column">
                                               <pre><code class="hljs javascript">
@@ -1623,9 +1576,9 @@ function justAddName(name) {
   return this;
 }
 
-justAddName(" Amy Farrah Fowler");//window
+justAddName("Amy Farrah Fowler");//window
 
-console.log(window.name); //  Amy Farrah Fowler
+console.log(window.name); //Amy Farrah Fowler
     </code></pre>
                                             </div>
                                             
@@ -1635,6 +1588,7 @@ console.log(window.name); //  Amy Farrah Fowler
                                 <section>
                                     <div class="wrap">
                                         <h2 class="aligncenter">What is this really?</h2>
+                                        <hr>
                                        <div class="grid">
                                           <div class="column">
                                               <pre><code class="hljs javascript">
@@ -1647,7 +1601,7 @@ console.log(window.name); //  Amy Farrah Fowler
 </code></pre>
                                             </div>
                                             <div class="column">
-                                                <pre class="fragment"><code>
+                                                <pre><code>
 (function(){
     'use strict';
     console.log(this);
@@ -1661,19 +1615,11 @@ console.log(window.name); //  Amy Farrah Fowler
                                 <section>
                                   <div class="wrap">
                                       <h2 class="aligncenter">Give my <code>this</code> back in strict mode</h2>
+                                      <hr>
                                      <div class="grid">
-                                        <div class="column">
-                                            <pre><code class="hljs javascript">
-(function(){
-  'use strict';
-  console.log(this);
-})(); 
-//undefined
-
-</code></pre>
-                                          </div>
+                                        
                                           <div class="column">
-                                              <pre class="fragment"><code>
+                                              <pre><code>
 (function(self){
   'use strict';
   console.log(self);
@@ -1683,7 +1629,7 @@ console.log(window.name); //  Amy Farrah Fowler
 </code></pre>
                                           </div>
                                           <div class="column">
-                                              <pre class="fragment"><code>
+                                              <pre><code>
 (function(){
   'use strict';
   console.log(this);
@@ -1702,21 +1648,20 @@ console.log(window.name); //  Amy Farrah Fowler
                                           <div class="column">
                                               <pre><code class="hljs javascript">
 var buddy = {
-  firstName:'penny',
+  firstName:'Penny',
   lastName:this.firstName,
   context:this
 }
               
-buddy.firstName; //penny
+buddy.firstName; //Penny
 buddy.lastName;//undefined
 buddy.context;//window
   </code></pre>
                                             </div>
                                             <div class="column">
-                                                <pre class="fragment"><code>
-
+                                                <pre><code>
 var buddy = {
-  firstName:'sheldon',
+  firstName:'Penny',
   getName:function(){
     return this.firstName;
   },
@@ -1725,11 +1670,9 @@ var buddy = {
   }
 };
 
-buddy.getName(); //sheldon
+buddy.getName(); //Penny
 buddy.getContext(); 
-// Object {getContext: function}
-
-                                                  </code></pre>
+// Object {getContext: function}</code></pre>
                                             </div>
                                         </div>
                                       </div>
@@ -1753,7 +1696,7 @@ a.b();
   </code></pre>
                                             </div>
                                             <div class="column">
-                                                <pre class="fragment"><code>
+                                                <pre><code>
 var foo = a.b;
 
 console.log(foo);
@@ -1797,7 +1740,7 @@ a.b();//window
   </code></pre>
                                             </div>
                                             <div class="column">
-                                                <pre class="fragment"><code>
+                                                <pre><code>
 var a = {
   b: function() {
       (function() {
@@ -1812,7 +1755,7 @@ a.b(); //window
                                         </div>
                                       </div>
                                   
-                                  <h4 class="fragment">strict mode will return undefined</h4>
+                                  <h4 style="display:none">strict mode will return undefined</h4>
                                   <a href="http://stackoverflow.com/questions/20309236/understanding-javascript-this-with-private-function-and-self-executing-function/20309357?noredirect=1#20309357">context of this</a>
                                 </section> 
                                 <section>
@@ -1869,14 +1812,13 @@ lunch.context;
   </code></pre>
                                             </div>
                                             <div class="column">
-                                                <pre class="fragment"><code class="hljs javascript">
+                                                <pre><code class="hljs javascript">
 function Menu(item){
-  var that = this;
   this.item = item;
   this.context = this;
 
   setTimeout( () => {
-    console.log('setTimeout context:', that);
+    console.log('setTimeout context:', this);
   }, 10);
 
 }
@@ -1907,7 +1849,7 @@ document.getElementById('myButton')
   </code></pre>
                                             </div>
                                             <div class="column">
-                                                <pre class="fragment"><code>
+                                                <pre><code>
 function Bluify(e){
   // Always true
   console.log(this === e.currentTarget); 
@@ -1924,18 +1866,17 @@ function Bluify(e){
                                     <h2>Now. I know this</h2>
                                     <ol>
                                       <li>left of dot(.) will indicate value of this</li>
-                                      <li class="fragment">window (no dot)</li>
+                                      <li>window (no dot)</li>
                                       <br>
-                                      <li class="fragment">undefined (strict mode IIFE)</li>
+                                      <li>undefined (strict mode IIFE)</li>
                                       <br>
-                                      <li class="fragment">object (left of dot('.') for a method call)</li>
-                                      <li class="fragment">newly constructed object (constructor: new keyword)</li>
+                                      <li>object (left of dot('.') for a method call)</li>
+                                      <li>newly constructed object (constructor: new keyword)</li>
                                       <br>
-                                      <li class="fragment">window (inside setTimeout)</li>
-                                      <li class="fragment">element fired the event, inside event handler</li>
+                                      <li>window (inside setTimeout)</li>
+                                      <li>element fired the event, inside event handler</li>
                                       <br>
-                                      <li class="fragment">this has access to all inherited properties</li>
-                                      <li class="fragment">use bind, call, apply to set value of this explicitly</li>
+                                      <li>use bind, call, apply to set value of this explicitly</li>
                                     </ol>
                                      <br>
                                      <br>
@@ -1984,29 +1925,11 @@ function Bluify(e){
                                          </ul>
                                        </div>
                                    </section>
-                                  <section>
-                                      <div class="wrap">
-                                          <h2 class="aligncenter">this of an Object</h2>
-                                         <div class="grid">
-                                            <div class="column">
-                                                <pre><code class="hljs javascript">
-  
-    </code></pre>
-                                              </div>
-                                              <div class="column">
-                                                  <pre class="fragment"><code>
-  
-  
-  
-                                                    </code></pre>
-                                              </div>
-                                          </div>
-                                        </div>
-                                  </section>
+                                  
                                 <section>
                                     <div class="wrap">
                                         <h2 class="aligncenter">bind any function that has <code>this</code></h2>
-                                        <p class="aligncenter">Create a new function. You want that function to later be called with a certain context</p>
+                                        <p class="aligncenter">Create a new function by holding the context(this) to be used later such as dom binding.</p>
                                        <div class="grid">
                                           <div class="column">
                                               <pre><code class="hljs javascript">
@@ -2019,7 +1942,7 @@ function getMonthlyFee(fee){
   </code></pre>
                                             </div>
                                             <div class="column">
-                                                <pre class="fragment"><code>
+                                                <pre><code>
 var rachel = {
   name:'Rachel Green', 
   total:500
@@ -2058,7 +1981,7 @@ var monica = {
   </code></pre>
                                             </div>
                                             <div class="column">
-                                                <pre class="fragment"><code>
+                                                <pre><code>
 var ross = {
   name:'Ross Geller', 
   total:250
@@ -2099,14 +2022,14 @@ lunch.apply(forDev, [5, 10]);//pizza for 5 within 10 min.
                                       </div>
                                 </section>
                                 <section>
-                                    <h2>"this" in arguments</h2>
-                                    <h4>8 ES5 function allows thisArg</h4>
+                                    <h2><code>this</code> in arguments</h2>
+                                    <h4>8 function allows thisArg</h4>
                                     <pre><code>
 Function.prototype.bind( thisArg [ , arg1 [ , arg2, ... ] ] )
 Function.prototype.call( thisArg [ , arg1 [ , arg2, ... ] ] )
 Function.prototype.apply( thisArg, argArray )
                                     </code></pre>
-                                    <pre class="fragment"><code>
+                                    <pre><code>
 Array.prototype.every( callbackfn [ , thisArg ] )
 Array.prototype.some( callbackfn [ , thisArg ] )
 Array.prototype.forEach( callbackfn [ , thisArg ] )
@@ -2123,21 +2046,21 @@ Array.prototype.filter( callbackfn [ , thisArg ] )
                                   </section>
                                   <section>
                                     <h2>How JavaScript works?</h2>
-                                    <h4 class="fragment">a <span class="purpleBold">single-threaded</span>, <span class="purpleBold">non-blocking</span>, <span class="purpleBold">asnchronous</span> concurrent runtime</h4>
+                                    <h4>A <span class="purpleBold">single-threaded</span>, <span class="purpleBold">non-blocking</span>, <span class="purpleBold">asnchronous</span> concurrent runtime</h4>
                                     <br>
-                                    <div class="fragment">
+                                    <div>
                                       <hr>
                                       <h3>I am a programmer, give me detail</h3>
-                                      <h4 class="fragment">maintain a <span class="purpleBold">call stack</span>, <span class="purpleBold">event loop</span>, <span class="purpleBold"> queue</span>, etc.</h4>
+                                      <h4>Maintain a <span class="purpleBold">call stack</span>, <span class="purpleBold">event loop</span>, <span class="purpleBold"> queue</span>, etc.</h4>
                                     </div>
                                     <br>
-                                    <div class="fragment">
+                                    <div>
                                       <hr>
-                                      <h3>are these in JS?</h3>
-                                      <h4 class="fragment">no. they are in JavaScript implementation.</h4>
+                                      <h3>Are these in JS?</h3>
+                                      <h4>No. They are in JavaScript implementation.</h4>
                                     </div>
                                     <br>
-                                    <a href="http://vimeo.com/96425312">Help, I'm stuck in an event-loop</a>
+                                    
                                   </section>
                                   <section>
                                       <div class="wrap">
@@ -2211,19 +2134,20 @@ foo</code></pre>
                                   <section>
                                       <div class="wrap">
                                           <h2 class="aligncenter">Blocking</h2>
+                                          <hr>
                                          <div class="grid">
                                             <div class="column">
                                                 <ul>
-                                                  <li>Blocking methods execute synchronously</li>
+                                                  <li><h4>Blocking methods execute synchronously</h4></li>
                                                   <li></li>
                                                   <li></li>
                                                 </ul>
                                             </div>
                                             <div class="column">
                                                 <ul>
-                                                  <li>non-blocking methods execute asynchronously</li>
-                                                  <li>does networking or uses timers</li>
-                                                  <li>Takes a callback</li>
+                                                  <li><h4>Non-blocking methods execute asynchronously</h4></li>
+                                                  <li><h4>Does networking or uses timers</h4></li>
+                                                  <li><h4>Takes a callback</h4></li>
                                                 </ul>
                                               </div>
                                           </div>
@@ -2231,7 +2155,7 @@ foo</code></pre>
                                   </section>
                                   <section>
                                       <div class="wrap">
-                                          <h2 class="aligncenter">async stack</h2>
+                                          <h2 class="aligncenter">Async stack</h2>
                                          <div class="grid">
                                             <div class="column">
                                                 <pre><code class="hljs javascript">
@@ -2303,6 +2227,129 @@ console.log('Hi')
                                         </div>
                                   </section>
                                   <section>
+                                      <h1>Events</h1>		
+                                      <img class="size-50" src="static/images/event.jpg" alt="">					
+                                    </section>
+                                    <section>
+                                      <img class="size-50" src="static/images/table.jpg" alt="">
+                                    </section>
+                                    <section>							
+                                      <img class="size-50" style="height:400px;" src="static/images/eventflow.png" alt="">
+                                      
+                                    </section>
+                                    <section>
+                                        <div class="wrap">
+                                            <h2 class="aligncenter">Event delegate</h2>
+                                           <div class="grid">
+                                              <div class="column">
+                                                  <pre><code class="hljs javascript">
+&lt;ul id=&quot;listToDestroy&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#&quot;&gt;first item&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#&quot;&gt;second item&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#&quot;&gt;third item&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#&quot;&gt;forth item&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Fifth item&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+                                                </code></pre>
+                                              </div>
+                                              <div class="column">
+                                                  <pre><code class="hljs javascript">
+var el = document.getElementById('listToDestroy');
+
+el.addEventListener('click', function (e) {
+    var list = e.target.parentNode;
+    list.parentNode.removeChild(list);
+    e.preventDefault();
+});
+        </code></pre>
+                                                </div>
+                                            </div>
+                                          </div>
+                                    </section>
+                                    <section>
+                                        <div class="wrap">
+                                            <h2 class="aligncenter">Event delegate (demo)</h2>
+                                           <div class="grid">
+                                              <div class="column">
+                                                  <ul id="listToDestroy">
+                                                      <li><a href="#">first item</a></li>
+                                                      <li><a href="#">second item</a></li>
+                                                      <li><a href="#">third item</a></li>
+                                                      <li><a href="#">forth item</a></li>
+                                                      <li><a href="#">Fifth item</a></li>
+                                                    </ul>
+                                                    <br>
+                                                    <button class="button round" id="addItem">add item</button>
+      
+                                              </div>
+                                              <div class="column">
+                                                  <pre><code class="hljs javascript">
+&lt;ul id=&quot;listToDestroy&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#&quot;&gt;first item&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#&quot;&gt;second item&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#&quot;&gt;third item&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#&quot;&gt;forth item&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Fifth item&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+var el = document.getElementById('listToDestroy');
+
+el.addEventListener('click', function (e) {
+    var list = e.target.parentNode;
+    list.parentNode.removeChild(list);
+    e.preventDefault();
+});
+        </code></pre>
+                                                </div>
+                                            </div>
+                                          </div>
+                                            <script type="text/javascript"> 
+                                       document.getElementById('listToDestroy').addEventListener('click', function (e) { 
+                                          var list = e.target.parentNode; 
+                                          list.parentNode.removeChild(list);
+                                          e.preventDefault();
+                                       });
+                                       document.getElementById('addItem').addEventListener('click', function (e) { 
+                                          var list = document.getElementById('listToDestroy'); 
+                                          var li = document.createElement('li');
+                                          var a = document.createElement('a');
+                                          a.setAttribute('href', '#');
+                                          a.classList.add('roll');
+                        
+                                          var span = document.createElement('span');
+                                          span.setAttribute('data-title', 'New Item');
+                                          var text = document.createTextNode('New Item');
+                                          span.appendChild(text);
+                                          a.appendChild(span);
+                                          li.appendChild(a);
+                                          list.appendChild(li);
+                                          
+                                          e.preventDefault();
+                                       });
+                                      </script>
+                                    </section>
+                                    <section>
+                                      <img class="size-50" src="static/images/security.jpeg" alt="">
+                                    </section>
+                                    <section>
+                                      <h1>Promise</h1>
+                                    </section>
+                                    <section>
+                                        <div class="wrap">
+                                            <img class="alignright size-50" src="static/images/macOrder.jpg" alt="iPhone">
+                                        </div>
+                                      </section>
+                                      <section>
+                                          <div class="wrap">
+                                              <img class="alignright size-50" src="static/images/macReceipt.jpg" alt="iPhone">
+                                          </div>
+                                        </section>
+                                        <section>
+                                            <div class="wrap">
+                                                <img class="alignright size-50" src="static/images/macFood.jpg" alt="iPhone">
+                                            </div>
+                                          </section>
+                                  <section>
                                       <div class="wrap">
                                           <h2 class="aligncenter">template two column</h2>
                                          <div class="grid">
@@ -2324,141 +2371,74 @@ console.log('Hi')
                               
                              
                               
-        <section>
-          <!--.wrap = container (width: 90%) -->
-          <div class="wrap">
-            <div class="grid vertical-align">
-              <div class="column">
-                <h3><strong>WebSlides is really easy</strong></h3>
-                <p class="text-intro">Each parent <code>&lt;section&gt;</code> in the #webslides element is an individual slide. </p>
-                <p>Code is clean and scalable. It uses <strong>intuitive markup</strong> with popular naming conventions. There's no need to overuse classes or nesting. <strong>Making an HTML presentation has never been so fast</strong>.</p>
-              </div>
-              <!-- .end .column -->
-              <div class="column">
-                  <pre><code class="hljs javascript" data-trim>
-var a = 2;
-function b(){
-    console.log(a);
-}					        </code></pre>
-              </div>
-              <!-- .end .column -->
-            </div>
-            <!-- .end .grid -->
-          </div>
-          <!-- .end .wrap -->
-        </section>
-        
-        <section>
-          <div class="wrap">
-            <h2><strong>WebSlides Demos</strong></h2>
-            <p>Contribute on <a href="https://github.com/webslides/webslides" title="Contribute on Github">Github</a>. <span class="alignright"><a href="demos/index.html" title="WebSlides Demos">View all &rsaquo;</a></span></p>
-            <ul class="flexblock gallery">
-              <li>
-                <a href="demos/why-webslides.html" title="Why WebSlides?">
-                  <figure>
-                    <img alt="Thumbnail Why WebSlides?" src="https://webslides.tv/static/images/demos-why.png">
-                    <figcaption>
-                      <h2>Why Core JavaScript?</h2>
-                    </figcaption>
-                  </figure>
-                </a>
-              </li>
-              <li>
-                <a href="demos/landings.html" title="Landings">
-                  <figure>
-                    <img alt="Thumbnail Landings" src="https://webslides.tv/static/images/demos-landings.png">
-                    <figcaption>
-                      <h2>Landings</h2>
-                    </figcaption>
-                  </figure>
-                </a>
-              </li>
-              <li>
-                <a href="demos/portfolios.html" title="Portfolios">
-                  <figure>
-                    <img alt="Thumbnail Portfolios" src="https://webslides.tv/static/images/demos-portfolios.png">
-                    <figcaption>
-                      <h2>Portfolios</h2>
-                    </figcaption>
-                  </figure>
-                </a>
-              </li>
-              <li>
-                <a href="demos/keynote.html" title="Apple Keynote">
-                  <figure>
-                    <img alt="Thumbnail Apple Keynote" src="https://webslides.tv/static/images/demos-apple.png">
-                    <figcaption>
-                      <h2>Apple Keynote</h2>
-                    </figcaption>
-                  </figure>
-                </a>
-              </li>
-            </ul>
-          </div>
-          <!-- .end .wrap -->
-        </section>
+                                  <section class="aligncenter">
+                                      <!-- .wrap = container (width: 90%) -->
+                                      <div class="wrap">
+                                        <h2><strong>Ready to Start?</strong> </h2>
+                                        <p class="text-intro">Start a new journey with confidence. <br>
+                                          Be the premium developer. The go to guy.</p>
+                                        <p>
+                                          <a href="https://webslides.tv/webslides-latest.zip" class="button" title="Download WebSlides">
+                                            <svg class="fa-cloud-download">
+                                              <use xlink:href="#fa-cloud-download"></use>
+                                            </svg>
+                                            Block a day
+                                          </a>
+                                          <span style="display:none" class="try">
+                                            <a href="https://www.paypal.me/jlantunez/8" title="Thanks :)">
+                                              <svg class="fa-paypal">
+                                                <use xlink:href="#fa-paypal"></use>
+                                              </svg>
+                                              
+                                            </a>
+                                          </span>
+                                        </p>
+                                      </div>
+                                      <!-- .end .wrap -->
+                                    </section>
         <section>
           <div class="wrap">
             <div class="grid vertical-align">
+                <div class="column">
+                    <h4>
+                      <svg class="fa-cubes">
+                        <use xlink:href="#fa-cubes"></use>
+                      </svg>
+                      <strong>Hands on Learning</strong>
+                    </h4>
+                    <p>The best way to learn is to <strong>do it yourself</strong> while someone else is there to answer your questions:</p>
+                    <ul class="description">
+                      <li>Date: <a href="http://www.thatjsdude.com/workshops/basic/js.html">Nov 11, 2017</a> 9.45am to 5.00pm</li>
+                      <li>Location: <a href="https://www.google.com/maps/place/215+W+Ohio+St,+Chicago,+IL+60654/@41.8901819,-87.6367768,16z/data=!4m15!1m9!4m8!1m6!1m2!1s0x880e2cb6c8fc884b:0x87ca96b1e220cd82!2sMerchandise+Mart,+Chicago,+IL!2m2!1d-87.633926!2d41.888969!1m0!3m4!1s0x880e2cb444f646c9:0x7945275dd8d4297d!8m2!3d41.8921364!4d-87.6348295">Close to Merchandise mart</a>.</li>
+                      <li>Promo code: <a href="https://www.eventbrite.com/e/advanced-javascript-workshop-for-beginners-tickets-37293764654">beatTheConfusion</a>.</li>
+                    </ul>
+                  </div>
+              
               <div class="column">
-                <h4>
-                  <svg class="fa-life-ring">
-                    <use xlink:href="#fa-life-ring"></use>
-                  </svg>
-                  <strong>Guides</strong>
-                </h4>
-                <p>If you need help, here's just three tutorials. Just a basic knowledge of HTML is required:</p>
-                <ul class="description">
-                  <li><a href="demos/components.html" title="WebSlides Components">WebSlides Components</a>.</li>
-                  <li><a href="demos/classes.html" title="WebSlides Classes">WebSlides Classes</a>.</li>
-                  <li><a href="demos/media.html" title="WebSlides Media">WebSlides Media: images, videos...</a></li>
-                </ul>
+                <figure><img class="aligncenter" src="static/images/mn.png" alt="WebSlides Files"></figure>
+                <figure><img class="aligncenter" src="static/images/cover.png" alt="WebSlides Files"></figure>
               </div>
               <div class="column">
-                <figure><img class="aligncenter" src="static/images/setup.png" alt="WebSlides Files"></figure>
-              </div>
-              <div class="column">
-                <h4>
-                  <svg class="fa-cubes">
-                    <use xlink:href="#fa-cubes"></use>
-                  </svg>
-                  <strong>Built to expand</strong>
-                </h4>
-                <p>The best way to <strong>inspire with your content</strong> is to connect on a personal level:</p>
-                <ul class="description">
-                  <li>Background images: <a href="http://unsplash.com">Unsplash</a>.</li>
-                  <li>CSS animations: <a href="https://daneden.github.io/animate.css/">Animate.css</a>.</li>
-                  <li>Longforms: <a href="http://michalsnik.github.io/aos/"> Animate on scroll</a>.</li>
-                </ul>
-              </div>
+                  <h4>
+                    <svg class="fa-life-ring">
+                      <use xlink:href="#fa-life-ring"></use>
+                    </svg>
+                    <strong>Six modules</strong>
+                  </h4>
+                  <ul class="description">
+                    <li><a href="http://www.thatjsdude.com/workshops/basic/js.html">Important Everyday parts</a></li>
+                    <li><a href="http://www.thatjsdude.com/workshops/basic/js.html"> Confusing Parts</a></li>
+                    <li><a href="http://www.thatjsdude.com/workshops/basic/js.html"> Browser and back-end integration</a></li>
+                    <li><a href="http://www.thatjsdude.com/workshops/basic/js.html">ES6, ES7, ES Next</a></li>
+                    <li><a href="http://www.thatjsdude.com/workshops/basic/js.html">Advanced JS Debugging</a></li>
+                    <li><a href="http://www.thatjsdude.com/workshops/basic/js.html">Modern workflow, Advanced topics</a></li>
+                  </ul>
+                </div>
             </div>
             <!--end .grid -->
           </div>
         </section>
-        <section class="aligncenter">
-          <!-- .wrap = container (width: 90%) -->
-          <div class="wrap">
-            <h2><strong>Ready to Start?</strong> </h2>
-            <p class="text-intro">Create your own presentation instantly. <br>120+ premium slides ready to use.</p>
-            <p>
-              <a href="https://webslides.tv/webslides-latest.zip" class="button" title="Download WebSlides">
-                <svg class="fa-cloud-download">
-                  <use xlink:href="#fa-cloud-download"></use>
-                </svg>
-                Free Download
-              </a>
-              <span class="try">
-                <a href="https://www.paypal.me/jlantunez/8" title="Thanks :)">
-                  <svg class="fa-paypal">
-                    <use xlink:href="#fa-paypal"></use>
-                  </svg>
-                  Pay what you want.
-                </a>
-              </span>
-            </p>
-          </div>
-          <!-- .end .wrap -->
-        </section>
+        
         <section class="slide-bottom">
           <div class="wrap">
             <div class="content-right text-serif">
@@ -2470,8 +2450,12 @@ function b(){
                   </svg>
                 </a>
               </h2>
-              <p>People share content that makes them feel inspired. WebSlides is a very effective way to engage young audiences, customers, and teams.</p> 
-              <p>Best,<br> <a href="https://twitter.com/jlantunez">@jlantunez</a>, <a href="https://twitter.com/belelros">@belelros</a>, and <a href="https://twitter.com/luissacristan">@luissacristan</a>.</p>
+              <p>Any question and concern feel free to send me email, set up a time for discussion. one to one training, interview preparation</p> 
+              <p>Best,<br> <a href="https://twitter.com/jsdude005">@jsdude005</a>,
+                <br> 
+                <a href="https://twitter.com/belelros">www.thatJsDude.com</a>, 
+                <br>
+                <a href="https://twitter.com/belelros">khan4019@gmail.com</a>.</p>
             </div>
             <!-- .end .content-right -->
           </div>
