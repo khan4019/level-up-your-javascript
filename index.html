@@ -240,20 +240,20 @@
 				<section>
             <div class="wrap aligncenter">
               <figure>
-                <img style="height:400px" src="./static/images/others/jump.JPG" alt="">
                 <figcaption>
                   <h3>Jump from 14,000ft</h3>
                 </figcaption>
+                <img style="height:400px" src="./static/images/others/jump.JPG" alt="">
               </figure>
             </div>
 				</section>
 				<section>
           <div class="wrap aligncenter">
               <figure>
-                <img style="height:400px" src="./static/images/others/marathon.jpg" alt="">
                 <figcaption>
                   <h3>Run a Marathon (26.2 miles)</h3>
                 </figcaption>
+                <img style="height:400px" src="./static/images/others/marathon.jpg" alt="">
               </figure>
             </div>
 				</section>
@@ -292,7 +292,7 @@
         </section>
         <section>
           <h1>Function</h1>
-          <img src="static/images/function.jpg" alt="">
+          <img class="alignright size-50" src="static/images/function.jpg" alt="">
         </section>
          <section>
             <div class="wrap">
@@ -308,7 +308,8 @@ function foo(a, b){
           </code></pre>
                   </div>
                   <div class="column">
-                    <h4>expression - anonymous</h4>
+                    <h5>expression - anonymous</h5>
+                    <br>
 <pre class="fragment"><code>
 var foo = function(a, b){
   return a * b;
@@ -330,7 +331,7 @@ var foo = function boo(a, b){
 var foo = new Function("a", "b", "return a * b;");
           </code></pre>
               </div>
-          <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions">MDN: function</a>
+          
         </section> 
         <section>
           <div class="wrap">
@@ -614,38 +615,55 @@ foo(2,3);
                 </div> 
                 </section>
                 <section>
-                  <h2>inner variable, function</h2>
-                  <pre><code>
-function foo(a, b){
-    function inner(){
-      console.log(a);
+                  <div class="content-center">
+                      <h2>inner variable, inner function</h2>
+                      <pre><code>
+    function foo(a, b){
+        function inner(){
+          console.log(a);
+        }
+        var c = a + b;
+        return a * b;
     }
-    var c = a + b;
-    return a * b;
-}
-                  </code></pre>
-                  
+                      </code></pre>
+                  </div>
                 </section>
                 <section>
-                  <div class="content-center">
-                    <h2>variables and functions inside the function</h2>
-                      <pre class="fragment"><code>
-ExecutionContext: {
-    scopeChain : { ... },
-    variableObject: {
-        arguments:{
-          0 : 2,
-            1 : 3,
-          length : 2
-        },
-        a : 2,
-        b : 3,
-        inner : pointer to function inner,
-        c : undefined
-    }
+                  <div class="wrap">
+                      <div class="grid vertical-align">
+                        <div class="column">
+                            <h2>inner variable, inner function</h2>
+                            <pre><code>
+function foo(a, b){
+  function inner(){
+    console.log(a);
+  }
+  var c = a + b;
+  return a * b;
 }
-                                        </code></pre>
-                  </div>
+                            </code></pre>
+                          </div>
+                          <div class="column">
+                              <h5>added in the variable object</h5>
+                              <pre><code>
+ExecutionContext: {
+  scopeChain : { ... },
+  variableObject: {
+      arguments:{
+        0 : 2,
+          1 : 3,
+        length : 2
+      },
+      a : 2,
+      b : 3,
+      inner : pointer to function inner,
+      c : undefined
+  }
+}
+                              </code></pre>
+                          </div>
+                      </div>
+                    </div>
                 </section>
                 <section class="slide-top">
                   <div class="content-center">
@@ -753,12 +771,14 @@ ExecutionContext: {
                           <li class="fragment"><h4>Local scope</h4></li>
                           <br>
                           <li class="fragment"><h4>Block scope</h4></li>
+                          <li class="fragment">Lexical scope</li>
                       </ul>
                     </section>
         
                     <section>
                       <div class="wrap">
                           <img class="alignright size-50" src="static/images/my Drawing/globe.png" alt="iPhone">
+                          <h1>Global...Globe</h1>
                       </div>
                     </section>
         
@@ -814,23 +834,38 @@ function b(){
                       </div>
                     </section>
                     <section>
-                      <h2>local/function scope</h2>
-                      <pre><code>function b(){
-           var d = 21;
-           console.log(d);
-        }
-        b();</code></pre>
-        <pre class="fragment"><code>
-        console.log(d); //ReferenceError: d is not defined
-                        </code></pre>
-                      <div class="fragment">
-                        <ol>
-                          <li>function call creates execution context (before running any code) </li>
-                          <li class="fragment">First thing created is the scope chain</li>
-                          <li class="fragment">create arguments, variable, determine <code>this</code></li>
-                          <li class="fragment">execute function</li>
-                        </ol>
-                      </div>
+                        <div class="wrap">
+                            <div class="grid vertical-align">
+                              <div class="column">
+                                  <h2>Local/function scope</h2>
+                                  <ol>
+                                    <li>
+                                      <h4>function call creates execution context (before running any code)</h4>
+                                    </li>
+                                    <li>
+                                        <h4>First thing created is the scope chain</h4>
+                                      </li>
+                                    <li>
+                                      <h4>Create arguments, variable, determine <code>this</code></h4>
+                                    </li>
+                                    <li>
+                                      <h4>Execute function</h4>
+                                    </li>
+                                  </ol>
+                              </div>
+                              <div class="column">
+                                  <pre><code>
+function b(){
+  var d = 21;
+  console.log(d);
+}
+b();
+
+console.log(d); //ReferenceError: d is not defined
+                                  </code></pre>
+                                </div>
+                            </div>
+                          </div>
                                     <br>
                       <a href="http://davidshariff.com/blog/javascript-scope-chain-and-closures/">JS scope chain</a>
                     </section>
@@ -840,14 +875,23 @@ function b(){
                       </div>
                     </section>
                     <section>
+                        <h1 class="aligncenter"> Multi execution context</h1>
+                        <hr>
                       <div class="wrap">
                           <img class="alignright size-50" src="static/images/multiScope.png" alt="iPhone">
                           <div>
-                              <h2>multi execution context</h2>
+                              
                               <pre style="width:40%"><code>
 var a = 2;
-function b(){ console.log(a); }
-function c(){ console.log(a); }
+
+function b(){ 
+  console.log(a); 
+}
+
+function c(){ 
+  console.log(a); 
+}
+
 b();
 c();
                               </code></pre>
@@ -861,16 +905,14 @@ c();
                       </div>
                     </section>
                     <section>
-                      <div class="wrap">
-                          <img class="alignright size-50" src="static/images/localEvents.jpg" alt="iPhone">
-                      </div>
+                          <img class="fullScreenImage" src="static/images/localEvents.jpg" alt="iPhone">
                     </section>
-                    <section>
+                    <!-- <section>
                       <h2>nested function (closure)</h2>
                               <div class="wrap">
                                   <img class="alignright size-50" src="static/images/closureScope.png" alt="iPhone">
                               </div>
-                    </section>
+                    </section> -->
                     <section>
                         <div class="wrap">
                           <div class="grid vertical-align">
@@ -1339,8 +1381,740 @@ foo(); //?
                                           </div>
                                       </div>
                                     </div>
-                                >
                               </section> 
+                              <section>
+                                  <h1 class="aligncenter">Class</h1>
+                                </section>
+                              <section>
+                                  <div class="wrap">
+                                      <h2 class="aligncenter">Inheritance: in JavaScript</h2>
+                                     <div class="grid">
+                                        <div class="column">
+                                            <ul>
+                                              <li>
+                                                <h4>JavaScript only has one construct: objects</h4>
+                                              </li>
+                                              <li>
+                                                <h4>Each object has a private property (referred to as [[Prototype]] ) </h4>
+                                              </li>
+                                              <li>
+                                                <h4>Holds a link to another object called its prototype</h4>
+                                              </li>
+                                              <li>
+                                                <h5>That prototype object has a prototype of its own</h5>
+                                              </li>
+                                              <li>
+                                                <h5>Until an object is reached with null as its prototype</h5>
+                                              </li>
+                                              <li>
+                                                  <h5>By definition, null has no prototype, and acts as the final link in this prototype chain</h5>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                      </div>
+                                    </div>
+                              </section>
+                              <section>
+                                  <div class="wrap">
+                                      <h2 class="aligncenter">Prototype Chain</h2>
+                                     <div class="grid">
+                                        <div class="column">
+                                            <pre><code class="hljs javascript">
+var o = object.create(null);
+
+
+var o = {
+  id: 42, 
+  name: 'john'
+}
+
+
+function Entity(id, name){
+  this.id = id;
+  this.name = name;
+}
+
+                                          </code></pre>
+                                        </div>
+                                        <div class="column">
+                                            <img src="static/images/prototype.png" alt="">
+                                          </div>
+                                      </div>
+                                    </div>
+                              </section>
+                              <section>
+                                  <div class="wrap">
+                                      <h2 class="aligncenter">Using Object (without constructor)</h2>
+                                     <div class="grid">
+                                        <div class="column">
+                                            <pre><code class="hljs javascript">
+var person = {
+  hours: 5,
+  getHours: function() {
+    return this.hours + 3;
+  }
+};
+
+person.getHours(); // 8
+
+                                          </code></pre>
+                                        </div>
+                                        <div class="column">
+                                            <pre><code class="hljs javascript">
+var manager = Object.create(person);
+// manager is an object that inherits from person
+
+manager.getHours(); //8
+
+// creates an own property 'hours' on manager
+manager.hours = 1; 
+manager.getHours(); //4
+
+
+</code></pre>
+                                          </div>
+                                      </div>
+                                    </div>
+                              </section>
+                              <section>
+                                  <div class="wrap">
+                                      <h2 class="aligncenter">Using constructor</h2>
+                                     <div class="grid">
+                                        <div class="column">
+                                            <pre><code class="hljs javascript">
+function Person (id, hours) {
+  this.id = id;
+  this.hours = hours;
+  this.getHours = function() {
+    return this.id + ' works:' + this.hours +'hr';
+  };
+}
+
+                                          </code></pre>
+                                        </div>
+                                        <div class="column">
+                                            <pre><code class="hljs javascript">
+function Person (id, hours) {
+  this.id = id;
+  this.hours = hours;
+}
+
+Person.prototype.getHours = function() {
+  return this.id + ' works:' + this.hours +'hr';
+};
+  </code></pre>
+                                          </div>
+                                      </div>
+                                    </div>
+                              </section>
+                              <section>
+                                  <div class="wrap">
+                                      <h2 class="aligncenter">Get what is in prototype</h2>
+                                     <div class="grid">
+                                        <div class="column">
+                                            <pre><code class="hljs javascript">
+var dad = {
+  fathersName:'big Dad'
+}
+
+var child = Object.create(dad);
+
+child.whoIsYourFather = function(){
+  return this.fathersName;
+}
+
+                                          </code></pre>
+                                        </div>
+                                        <div class="column">
+                                            <pre><code class="hljs javascript">
+                                                child.whoIsYourFather(); //big Dad
+                                                
+child.hasOwnProperty('fathersName'); //false
+
+Object.getPrototypeOf(child); 
+//{fathersName: "big Dad"}
+  </code></pre>
+                                          </div>
+                                      </div>
+                                    </div>
+                              </section>
+                              <section>
+                                  <div class="wrap">
+                                      <h2 class="aligncenter">ES6 - class (syntactical sugar )</h2>
+                                     <div class="grid">
+                                        <div class="column">
+                                            <pre><code class="hljs javascript">
+function User(name) {
+  this.name = name;
+}
+
+User.prototype.sayHi = function() {
+  return 'Hi '+ this.name;
+}
+
+
+let user = new User("John");
+user.sayHi();
+
+                                          </code></pre>
+                                        </div>
+                                        <div class="column">
+                                            <pre><code class="hljs javascript">
+class User {
+    constructor(name) {
+      this.name = name;
+    }
+  
+    sayHi() {
+      return 'Hi ' + this.name;
+    }
+  }
+  
+  let user = new User("John");
+  user.sayHi();
+  </code></pre>
+                                          </div>
+                                      </div>
+                                    </div>
+                              </section>
+                              <section>
+                                  <div class="wrap">
+                                      <h2 class="aligncenter">template two column</h2>
+                                     <div class="grid">
+                                        <div class="column">
+                                            <pre><code class="hljs javascript">
+
+
+                                          </code></pre>
+                                        </div>
+                                        <div class="column">
+                                            <pre><code class="hljs javascript">
+
+  </code></pre>
+                                          </div>
+                                      </div>
+                                    </div>
+                              </section>
+                             
+                              
+                              <section>
+                                   <img src="static/images//this.png" alt="">
+                                </section>
+                                <section>
+                                    <div class="wrap">
+                                        <h2 class="aligncenter">What is this?</h2>
+                                       <div class="grid">
+                                          <div class="column">
+                                              <pre><code class="hljs javascript">
+console.log(this);//window	
+
+function whatIsThis() {
+  return this;
+}
+
+whatIsThis(); //window
+
+                                            </code></pre>
+                                          </div>
+                                          <div class="column">
+                                              <pre><code class="hljs javascript">
+function justAddName(name) {
+  this.name = name;
+  return this;
+}
+
+justAddName(" Amy Farrah Fowler");//window
+
+console.log(window.name); //  Amy Farrah Fowler
+    </code></pre>
+                                            </div>
+                                            
+                                        </div>
+                                      </div>
+                                </section>
+                                <section>
+                                    <div class="wrap">
+                                        <h2 class="aligncenter">What is this really?</h2>
+                                       <div class="grid">
+                                          <div class="column">
+                                              <pre><code class="hljs javascript">
+                                                
+(function(){
+  console.log(this);
+})();
+//window
+
+</code></pre>
+                                            </div>
+                                            <div class="column">
+                                                <pre class="fragment"><code>
+(function(){
+    'use strict';
+    console.log(this);
+})(); 
+//undefined
+                                                  </code></pre>
+                                            </div>
+                                        </div>
+                                      </div>
+                                </section>
+                                <section>
+                                  <div class="wrap">
+                                      <h2 class="aligncenter">Give my <code>this</code> back in strict mode</h2>
+                                     <div class="grid">
+                                        <div class="column">
+                                            <pre><code class="hljs javascript">
+(function(){
+  'use strict';
+  console.log(this);
+})(); 
+//undefined
+
+</code></pre>
+                                          </div>
+                                          <div class="column">
+                                              <pre class="fragment"><code>
+(function(self){
+  'use strict';
+  console.log(self);
+})(this);
+//window
+
+</code></pre>
+                                          </div>
+                                          <div class="column">
+                                              <pre class="fragment"><code>
+(function(){
+  'use strict';
+  console.log(this);
+}).call(this);
+//window
+                                                </code></pre>
+                                          </div>
+                                      </div>
+                                    </div>
+                                  <a href="http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf">Spec 10.4.3</a>
+                                </section>
+                                <section>
+                                    <div class="wrap">
+                                        <h2 class="aligncenter">this of an Object</h2>
+                                       <div class="grid">
+                                          <div class="column">
+                                              <pre><code class="hljs javascript">
+var buddy = {
+  firstName:'penny',
+  lastName:this.firstName,
+  context:this
+}
+              
+buddy.firstName; //penny
+buddy.lastName;//undefined
+buddy.context;//window
+  </code></pre>
+                                            </div>
+                                            <div class="column">
+                                                <pre class="fragment"><code>
+
+var buddy = {
+  firstName:'sheldon',
+  getName:function(){
+    return this.firstName;
+  },
+  getContext: function() {
+    return this;
+  }
+};
+
+buddy.getName(); //sheldon
+buddy.getContext(); 
+// Object {getContext: function}
+
+                                                  </code></pre>
+                                            </div>
+                                        </div>
+                                      </div>
+                                  
+                                  <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this">MDN: this</a>
+                                </section>
+                                <section>
+                                    <div class="wrap">
+                                        <h2 class="aligncenter">Understand the context of execution</h2>
+                                       <div class="grid">
+                                          <div class="column">
+                                              <pre><code class="hljs javascript">
+var a = {
+  b: function() {
+      return this;
+  }
+};
+
+a.b();
+//Object {b: function}
+  </code></pre>
+                                            </div>
+                                            <div class="column">
+                                                <pre class="fragment"><code>
+var foo = a.b;
+
+console.log(foo);
+/* function(){
+  return this;
+};*/
+
+foo(); //window
+
+window.foo(); //window
+                                                  </code></pre>
+                                            </div>
+                                            <div class="column">
+                                              <pre><code>
+var d = {};
+d.c = a.b;
+d.c();
+//Object {c: function}
+</code></pre>
+                                            </div>
+                                        </div>
+                                      </div>
+                                  
+                                  <a href="http://javascriptweblog.wordpress.com/2010/08/30/understanding-javascripts-this/">Understanding: this</a>
+                                </section>
+                                 <section>
+                                    <div class="wrap">
+                                        <h2 class="aligncenter">Some more execution context</h2>
+                                       <div class="grid">
+                                          <div class="column">
+                                              <pre><code class="hljs javascript">
+var a = {
+  b: function() {
+      var c = function() {
+          console.log(this);
+      };
+      c();
+  }
+}; 
+a.b();//window
+  </code></pre>
+                                            </div>
+                                            <div class="column">
+                                                <pre class="fragment"><code>
+var a = {
+  b: function() {
+      (function() {
+        console.log(this);
+      })();
+  }
+};
+
+a.b(); //window
+                                                  </code></pre>
+                                            </div>
+                                        </div>
+                                      </div>
+                                  
+                                  <h4 class="fragment">strict mode will return undefined</h4>
+                                  <a href="http://stackoverflow.com/questions/20309236/understanding-javascript-this-with-private-function-and-self-executing-function/20309357?noredirect=1#20309357">context of this</a>
+                                </section> 
+                                <section>
+                                    <div class="wrap">
+                                        <h2 class="aligncenter">setTimeout inside constructor</h2>
+                                       <div class="grid">
+                                          <div class="column">
+                                              <pre><code class="hljs javascript">
+function Menu(item){
+  this.item = item;
+  this.context = this;
+
+  setTimeout(function(){
+    console.log('setTimeout context:', this);
+  }, 10);
+
+}
+
+var lunch = new Menu('pizza');
+//setTimeout context: window
+
+lunch.context;
+//Menu {item: "pizza", context: Menu}
+  </code></pre>
+                                            </div>
+                                            <div class="column">
+                                                <h4>Same issues with setInterval</h4>
+                                            </div>
+                                        </div>
+                                      </div>
+                                </section>
+                                 <section>
+                                    <div class="wrap">
+                                        <h4 class="aligncenter">How to fix this?</h4>
+                                       <div class="grid">
+                                          <div class="column">
+                                              <pre><code class="hljs javascript">
+function Menu(item){
+  var that = this;
+  this.item = item;
+  this.context = this;
+
+  setTimeout(function(){
+    console.log('setTimeout context:', that);
+  }, 10);
+
+}
+              
+var lunch = new Menu('pizza');
+//setTimeout context: Menu {item: "pizza", context: Menu}
+
+lunch.context;
+//Menu {item: "pizza", context: Menu}
+  </code></pre>
+                                            </div>
+                                            <div class="column">
+                                                <pre class="fragment"><code class="hljs javascript">
+function Menu(item){
+  var that = this;
+  this.item = item;
+  this.context = this;
+
+  setTimeout( () => {
+    console.log('setTimeout context:', that);
+  }, 10);
+
+}
+              
+var lunch = new Menu('pizza');
+//setTimeout context: Menu {item: "pizza", context: Menu}
+
+lunch.context;
+//Menu {item: "pizza", context: Menu}
+ </code></pre>
+                                            </div>
+                                        </div>
+                                      </div>
+                                </section> 
+                                <section>
+                                    <div class="wrap">
+                                        <h2 class="aligncenter">DOM event handler</h2>
+                                        <button id="myButton" class="button radius" style="font-size: 1.1em;">my button</button>
+                                        <h4>this = element the event fired from</h4>
+                                       <div class="grid">
+                                          <div class="column">
+                                              <pre><code class="hljs javascript">
+//execute it in console
+document.getElementById('myButton')
+  .addEventListener('click', function(){
+    console.log(this);
+  });
+  </code></pre>
+                                            </div>
+                                            <div class="column">
+                                                <pre class="fragment"><code>
+function Bluify(e){
+  // Always true
+  console.log(this === e.currentTarget); 
+  this.style.backgroundColor = 'blue';
+}
+                                                  </code></pre>
+                                            </div>
+                                        </div>
+                                      </div>
+                                    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this">MDN: this</a>
+                                  </section>
+                                   
+                                  <section>
+                                    <h2>Now. I know this</h2>
+                                    <ol>
+                                      <li>left of dot(.) will indicate value of this</li>
+                                      <li class="fragment">window (no dot)</li>
+                                      <br>
+                                      <li class="fragment">undefined (strict mode IIFE)</li>
+                                      <br>
+                                      <li class="fragment">object (left of dot('.') for a method call)</li>
+                                      <li class="fragment">newly constructed object (constructor: new keyword)</li>
+                                      <br>
+                                      <li class="fragment">window (inside setTimeout)</li>
+                                      <li class="fragment">element fired the event, inside event handler</li>
+                                      <br>
+                                      <li class="fragment">this has access to all inherited properties</li>
+                                      <li class="fragment">use bind, call, apply to set value of this explicitly</li>
+                                    </ol>
+                                     <br>
+                                     <br>
+                                     <a href="http://davidshariff.com/blog/what-is-the-execution-context-in-javascript/">JS: execution context</a> 
+                                  </section>
+                                  <section>
+                                    <h1>Explicitly set <code>this</code></h1>
+                                  </section>
+                                  <section>
+                                      <div class="wrap">
+                                         <h1 class="aligncenter">set <code>this</code></h1>
+                                         <ul class="flexblock gallery">
+                                           <li>
+                                             <a href="#">
+                                               <figure>
+                                                 <img alt="Thumbnail" src="static/images/bind1.png">
+                                                 <figcaption>
+                                                   <h2>Bind</h2>
+                                                   <p>But I am a developer</p>
+                                                 </figcaption>
+                                               </figure>
+                                             </a>
+                                           </li>
+                                           <li>
+                                             <a href="#">
+                                               <figure>
+                                                 <img alt="Thumbnail " src="static/images/bind4.jpg">
+                                                 <figcaption>
+                                                   <h2>Call</h2>
+                                                   <p>Don't remind me that</p>
+                                                 </figcaption>
+                                               </figure>
+                                             </a>
+                                           </li>
+                                           <li>
+                                             <a href="#">
+                                               <figure>
+                                                 <img alt="Thumbnail" src="static/images/bind3.jpg">
+                                                 <figcaption>
+                                                   <h2>Apply</h2>
+                                                   <p>Now I can do this as well :)</p>
+                                                 </figcaption>
+                                               </figure>
+                                             </a>
+                                           </li>
+                                         </ul>
+                                       </div>
+                                   </section>
+                                  <section>
+                                      <div class="wrap">
+                                          <h2 class="aligncenter">this of an Object</h2>
+                                         <div class="grid">
+                                            <div class="column">
+                                                <pre><code class="hljs javascript">
+  
+    </code></pre>
+                                              </div>
+                                              <div class="column">
+                                                  <pre class="fragment"><code>
+  
+  
+  
+                                                    </code></pre>
+                                              </div>
+                                          </div>
+                                        </div>
+                                  </section>
+                                <section>
+                                    <div class="wrap">
+                                        <h2 class="aligncenter">bind any function that has <code>this</code></h2>
+                                        <p class="aligncenter">Create a new function. You want that function to later be called with a certain context</p>
+                                       <div class="grid">
+                                          <div class="column">
+                                              <pre><code class="hljs javascript">
+function getMonthlyFee(fee){
+  var remaining = this.total - fee;
+  this.total = remaining;
+  return this.name +' remaining balance:' 
+         + remaining;
+}
+  </code></pre>
+                                            </div>
+                                            <div class="column">
+                                                <pre class="fragment"><code>
+var rachel = {
+  name:'Rachel Green', 
+  total:500
+};
+
+//bind
+var getRachelFee = getMonthlyFee.bind(rachel, 90);
+
+//deduct
+getRachelFee();
+//Rachel Green remaining balance:410
+
+getRachelFee();
+//Rachel Green remaining balance:320
+                                                  </code></pre>
+                                            </div>
+                                        </div>
+                                      </div>
+                                </section>
+                                <section>
+                                    <div class="wrap">
+                                        <h2 class="aligncenter">bind any method on other object</h2>
+                                       <div class="grid">
+                                          <div class="column">
+                                              <pre><code class="hljs javascript">
+var monica = {
+  name: 'Monica',
+  getMonthlyFee:  function(fee){
+    var remaining = this.total - fee;
+    this.total = remaining;
+    return this.name +' remaining balance:' 
+         + remaining;
+  }
+}
+
+  </code></pre>
+                                            </div>
+                                            <div class="column">
+                                                <pre class="fragment"><code>
+var ross = {
+  name:'Ross Geller', 
+  total:250
+};
+
+//bind
+var getRossFee = monica.getMonthlyFee.bind(ross, 25);
+
+//deduct
+getRossFee(); 
+//Ross Geller remaining balance:225
+getRossFee(); 
+//Ross Geller remaining balance:200
+                                                  </code></pre>
+                                            </div>
+                                        </div>
+                                      </div>
+                                </section>
+                                <section>
+                                    <div class="wrap">
+                                        <h2 class="aligncenter"> call and apply</h2>
+                                        <p class="aligncenter">Just use the provided context and execute immediately</p>
+                                       <div class="grid">
+                                          <div class="column">
+                                              <pre><code class="hljs javascript">
+function lunch(budget, time){
+  return this.menu +' for ' + budget +' within '+ time +' min.';
+}
+
+var forDev = {menu: 'pizza'};
+
+lunch.call(forDev, 5, 10);//pizza for 5 within 10 min.
+lunch.apply(forDev, [5, 10]);//pizza for 5 within 10 min.
+  </code></pre>
+                                            </div>
+                                            
+                                        </div>
+                                      </div>
+                                </section>
+                                <section>
+                                    <h2>"this" in arguments</h2>
+                                    <h4>8 ES5 function allows thisArg</h4>
+                                    <pre><code>
+Function.prototype.bind( thisArg [ , arg1 [ , arg2, ... ] ] )
+Function.prototype.call( thisArg [ , arg1 [ , arg2, ... ] ] )
+Function.prototype.apply( thisArg, argArray )
+                                    </code></pre>
+                                    <pre class="fragment"><code>
+Array.prototype.every( callbackfn [ , thisArg ] )
+Array.prototype.some( callbackfn [ , thisArg ] )
+Array.prototype.forEach( callbackfn [ , thisArg ] )
+Array.prototype.map( callbackfn [ , thisArg ] )
+Array.prototype.filter( callbackfn [ , thisArg ] )
+                                                      </code></pre> 
+                                </section>
+                                
                               
                               
                              
@@ -1508,7 +2282,7 @@ function b(){
 
      <footer role="contentinfo">
       <div class="wrap">
-        <p>An <a href="https://github.com/webslides/webslides">open source solution</a>, by <a href="https://twitter.com/webslides">@webslides</a>.</p>
+        <p>More on <a href="http://www.thatjsdude.com/">thatjsdude.com</a>, by <a href="https://twitter.com/jsdude005">@jsdude005</a>.</p>
       </div>
     </footer> 
 
