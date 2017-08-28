@@ -121,7 +121,7 @@
                 <div>
                   <h2>
                     <span>&rarr;</span>
-                    how function works
+                    Function in depth
                   </h2>
                    Scope, hoisting, closure
                 </div>
@@ -143,7 +143,7 @@
                     <svg class="fa-redo">
                       <use xlink:href="#fa-redo"></use>
                     </svg>
-                    Event Loop
+                    How JS works
                   </h2>
                   Stack, Heap, Event loop.
                 </div>
@@ -167,7 +167,7 @@
                     </svg>
                     this
                   </h2>
-                  8 different places.
+                  De-mystify notorious this
                 </div>
               </li>
               <li>
@@ -259,7 +259,10 @@
         </section>
         <section>
           <h1>Function</h1>
-          <img class="alignright size-50" src="static/images/function.jpg" alt="">
+
+          <div class="wrap">
+              <img style="height:500px;" class="alignright size-50" src="static/images/zoomfunction.jpg" alt="">
+          </div>
         </section>
          <section>
             <div class="wrap">
@@ -267,7 +270,7 @@
                 <hr>
                 <div class="grid">
                   <div class="column">
-                    <h4>declaration</h4>
+                    <h4>Declaration</h4>
                     <pre><code>
 function foo(a, b){
     return a * b;
@@ -275,7 +278,7 @@ function foo(a, b){
           </code></pre>
                   </div>
                   <div class="column">
-                    <h5>expression - anonymous</h5>
+                    <h5>Expression - anonymous</h5>
                     <br>
 <pre><code>
 var foo = function(a, b){
@@ -284,7 +287,7 @@ var foo = function(a, b){
               </code></pre>
                   </div>
                   <div class="column">
-                    <h4>expression - named</h4>
+                    <h4>Expression - named</h4>
 <pre><code>
 var foo = function boo(a, b){
   console.log(boo);
@@ -443,7 +446,7 @@ add();
               </section>
             <section>
                 <div class="wrap size-50 aligncenter">
-                  <h2><strong>Function Creation</strong></h2>
+                  <h2><strong>Function Execution</strong></h2>
                   <p class="text-intro"><a href="">Two stages.</a></p>
                   <pre><code>
 function foo(a, b){
@@ -582,7 +585,9 @@ function foo(a, b){
   function inner(){
     console.log(a);
   }
+
   inner();
+  
   var c = a * b;
   return c;
 }
@@ -596,17 +601,19 @@ function foo(a, b){
                             <h2>inner variable, inner function</h2>
                             <pre><code>
 function foo(a, b){
+
   function inner(){
     console.log(c);
   }
   inner();
+  
   var c = a * b;
   return c;
 }
                             </code></pre>
                           </div>
                           <div class="column">
-                              <h5>added in the variable object</h5>
+                              <h5>scanning and adding to the variable object</h5>
                               <pre><code>
 ExecutionContext: {
   scopeChain : { ... },
@@ -663,14 +670,6 @@ ExecutionContext: {
                     
                   </section>
                    <section>
-                    <h2>scope chain</h2>
-                    <h4>a collection of</h4>
-                    <ol>
-                      <li><h4>current execution context</h4></li>
-                      <li><h4>all parent execution context</h4></li>
-                    </ol>
-                  </section> 
-                  <section>
                     <h2>Execution Context and Scope</h2>
                     <ul>
                         <li><h4>A concept in the language spec</h4></li>
@@ -724,6 +723,15 @@ ExecutionContext: {
                         </div>
                     </section>
                     <section>
+                        <h2>Scope chain</h2>
+                        <h4>A collection of</h4>
+                        <ol>
+                          <li><h4>Current execution context</h4></li>
+                          <li><h4>All parent execution context</h4></li>
+                        </ol>
+                      </section> 
+                      
+                    <section>
                       <h2>JavaScript Scope</h2>
                       <br>
                       <br>
@@ -769,7 +777,7 @@ ExecutionContext: {
                       <div class="wrap">
                           <img class="alignright size-50" src="static/images/globalscope.png" alt="iPhone">
                           <div>
-                              <h2>global scope</h2>
+                              <h2>Global scope</h2>
                               <pre style="width:40%"><code>
 var a = 2;
 function b(){
@@ -813,8 +821,9 @@ function b(){
                                       <h4>Create arguments, variable, determine <code>this</code></h4>
                                     </li>
                                     <li>
-                                      <h4>Execute function</h4>
+                                      <h4>variables and inner functions are available inside only</h4>
                                     </li>
+                                    
                                   </ol>
                               </div>
                               <div class="column">
@@ -900,13 +909,15 @@ c();
                             </div>
                             <div class="column">
                                 <pre><code>
+
 for(var i = 0; i<5; i++){
   var twice = i*2;
 }
-console.log(i);
-console.log(twice);
-//5 
-//8
+
+console.log(i);// 5
+
+console.log(twice);//8
+
                                 </code></pre>
                               </div>
                           </div>
@@ -934,12 +945,15 @@ console.log(twice);
                               </div>
                               <div class="column">
                                   <pre><code class="hljs javascript">
+
   for(let i = 0; i<5; i++){
     const twice = i*2;
   }
+
   console.log(i);
-  console.log(twice);
   //Uncaught ReferenceError: i is not defined
+  
+  console.log(twice);  
   //Uncaught ReferenceError: twice is not defined
                                   </code></pre>
                                 </div>
@@ -947,7 +961,7 @@ console.log(twice);
                           </div>
                         </section>   
                         <section>
-                            <h1>closure</h1>
+                            <h1>Closure</h1>
                             <div class="wrap">
                                 <img class="alignright size-50" src="static/images/closure.jpg" alt="iPhone">
                             </div>
@@ -974,8 +988,8 @@ var a = counter();
 
 a;
 //function (){
-//       return i++;
-//    }
+//   return i++;
+//}
 
 a(); //0
 a(); //1
@@ -1211,6 +1225,7 @@ function justLooping() {
   for (var i = 0; i &lt; 5; i++) {
       var twice = i*2;
   }
+
   console.log(i);
   console.log(twice);
 }
@@ -1224,6 +1239,7 @@ justLooping();// 5 8
 function justLooping() {
   var i;
   var twice;
+  
   for (i = 0; i &lt; 5; i++) {
       twice = i*2;
   }
@@ -1246,13 +1262,13 @@ justLooping(); // 5 8
                                         <div class="column">
                                             <pre><code class="hljs javascript">
 function outer(){
-  inner();
 
-  
+  inner();
   
   function inner(){
     console.log('inside inner function');
   }  
+
 }
 
 outer();
@@ -1261,12 +1277,12 @@ outer();
                                         <div class="column">
                                             <pre><code class="hljs javascript">
 function outer(){
+
   function inner(){
     console.log('inside inner');
   }
 
   inner();
-
  
 }
 
@@ -1405,7 +1421,6 @@ function Entity(id, name){
   this.id = id;
   this.name = name;
 }
-
                                           </code></pre>
                                         </div>
                                         <div class="column">
@@ -1506,6 +1521,7 @@ child.hasOwnProperty('fathersName'); //false
 Object.getPrototypeOf(child); 
 //{fathersName: "big Dad"}
   </code></pre>
+                                            <p><code>this</code> walks through prototype chain.</p>
                                           </div>
                                       </div>
                                     </div>
@@ -1639,6 +1655,7 @@ console.log(window.name); //Amy Farrah Fowler
                                           </div>
                                       </div>
                                     </div>
+                                    <br>
                                   <a href="http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf">Spec 10.4.3</a>
                                 </section>
                                 <section>
@@ -1711,11 +1728,16 @@ window.foo(); //window
                                             </div>
                                             <div class="column">
                                               <pre><code>
-var d = {};
+var d = {
+  d:'my D'
+};
+
 d.c = a.b;
+
 d.c();
-//Object {c: function}
+//Object {d:'my D', c: function}
 </code></pre>
+                                              <p>Watch left side of dot(.)</p>
                                             </div>
                                         </div>
                                       </div>
@@ -1782,7 +1804,7 @@ lunch.context;
   </code></pre>
                                             </div>
                                             <div class="column">
-                                                <h4>Same issues with setInterval</h4>
+                                                <h4>Same behavior with setInterval</h4>
                                             </div>
                                         </div>
                                       </div>
@@ -1837,7 +1859,7 @@ lunch.context;
                                     <div class="wrap">
                                         <h2 class="aligncenter">DOM event handler</h2>
                                         <button id="myButton" class="button radius" style="font-size: 1.1em;">my button</button>
-                                        <h4>this = element the event fired from</h4>
+                                        <h4>this = the element that fired the event</h4>
                                        <div class="grid">
                                           <div class="column">
                                               <pre><code class="hljs javascript">
@@ -2147,7 +2169,7 @@ foo</code></pre>
                                                 <ul>
                                                   <li><h4>Non-blocking methods execute asynchronously</h4></li>
                                                   <li><h4>Does networking or uses timers</h4></li>
-                                                  <li><h4>Takes a callback</h4></li>
+                                                  <li><h4>Usually takes a callback</h4></li>
                                                 </ul>
                                               </div>
                                           </div>
@@ -2188,6 +2210,7 @@ console.log('Hi')
                                   <section>
                                       <div class="wrap">
                                           <h2 class="aligncenter">Concurrency model and Event Loop</h2>
+                                          <hr>
                                          <div class="grid">
                                             <div class="column">
                                                 <ul>
@@ -2332,7 +2355,7 @@ el.addEventListener('click', function (e) {
                                       <img class="size-50" src="static/images/security.jpeg" alt="">
                                     </section>
                                     <section>
-                                      <h1>Promise</h1>
+                                      <h1 class="aligncenter">Promise</h1>
                                     </section>
                                     <section>
                                         <div class="wrap">
