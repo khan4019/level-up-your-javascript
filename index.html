@@ -2114,7 +2114,212 @@ Array.prototype.map( callbackfn [ , thisArg ] )
 Array.prototype.filter( callbackfn [ , thisArg ] )
                                                       </code></pre> 
                                 </section>
-                                
+                                <section>
+                                    <h2>What is JavaScript?</h2>
+                                  </section>
+                                  <section>
+                                    <h2></h2>
+                                    <img class="alignright size-50" src="static/images/javascript.png" alt="">
+                                  </section>
+                                  <section>
+                                    <h2>How JavaScript works?</h2>
+                                    <h4 class="fragment">a <span class="purpleBold">single-threaded</span>, <span class="purpleBold">non-blocking</span>, <span class="purpleBold">asnchronous</span> concurrent runtime</h4>
+                                    <br>
+                                    <div class="fragment">
+                                      <hr>
+                                      <h3>I am a programmer, give me detail</h3>
+                                      <h4 class="fragment">maintain a <span class="purpleBold">call stack</span>, <span class="purpleBold">event loop</span>, <span class="purpleBold"> queue</span>, etc.</h4>
+                                    </div>
+                                    <br>
+                                    <div class="fragment">
+                                      <hr>
+                                      <h3>are these in JS?</h3>
+                                      <h4 class="fragment">no. they are in JavaScript implementation.</h4>
+                                    </div>
+                                    <br>
+                                    <a href="http://vimeo.com/96425312">Help, I'm stuck in an event-loop</a>
+                                  </section>
+                                  <section>
+                                      <div class="wrap">
+                                          <h2 class="aligncenter">call stack</h2>
+                                         <div class="grid">
+                                            <div class="column">
+                                                <pre><code class="hljs javascript">
+function multiply(a,b){
+    return a * b;
+}
+
+function square (n){
+    return multiply(n,n);
+}
+
+function consoleSquare(n){
+    var squared = square(n);
+    console.log(squared);
+}
+consoleSquare(3);
+    
+                                              </code></pre>
+                                            </div>
+                                            <div class="column">
+                                                <h4>Call stack</h4>
+                                                <pre><code class="hljs javascript">
+
+
+
+multiply
+square
+consoleSquare</code></pre>
+                                              </div>
+                                          </div>
+                                        </div>
+                                  </section>
+                                  <section>
+                                      <div class="wrap">
+                                          <h2 class="aligncenter">Stack overflow</h2>
+                                         <div class="grid">
+                                            <div class="column">
+                                                <pre><code class="hljs javascript">
+function foo(){
+  foo();
+}    
+    
+                                              </code></pre>
+                                            </div>
+                                            <div class="column">
+                                                <h4>Call stack</h4>
+                                                <pre><code class="hljs javascript">
+foo
+foo
+foo
+foo
+foo
+foo
+foo
+foo
+foo
+foo
+foo
+foo
+foo
+foo
+foo</code></pre>
+                                              </div>
+                                          </div>
+                                        </div>
+                                  </section>
+                                  <section>
+                                      <div class="wrap">
+                                          <h2 class="aligncenter">Blocking</h2>
+                                         <div class="grid">
+                                            <div class="column">
+                                                <ul>
+                                                  <li>Blocking methods execute synchronously</li>
+                                                  <li></li>
+                                                  <li></li>
+                                                </ul>
+                                            </div>
+                                            <div class="column">
+                                                <ul>
+                                                  <li>non-blocking methods execute asynchronously</li>
+                                                  <li>does networking or uses timers</li>
+                                                  <li>Takes a callback</li>
+                                                </ul>
+                                              </div>
+                                          </div>
+                                        </div>
+                                  </section>
+                                  <section>
+                                      <div class="wrap">
+                                          <h2 class="aligncenter">async stack</h2>
+                                         <div class="grid">
+                                            <div class="column">
+                                                <pre><code class="hljs javascript">
+console.log('Hi');
+
+setTimeout(function(){
+  console.log('Chicago');
+}, 2000)
+
+console.log('There');
+
+// Hi
+// There
+// Chicago
+                                              </code></pre>
+                                            </div>
+                                            <div class="column">
+                                              <h4>Call stack</h4>
+                                                <pre><code class="hljs javascript">
+
+console.log('There')
+???
+console.log('Hi')
+</code></pre>
+
+                                              </div>
+                                          </div>
+                                        </div>
+                                  </section>
+                                  <section>
+                                      <div class="wrap">
+                                          <h2 class="aligncenter">Concurrency model and Event Loop</h2>
+                                         <div class="grid">
+                                            <div class="column">
+                                                <ul>
+                                                  <li>
+                                                    <h4><strong>Stack:</strong>  frames of call</h4>
+                                                  </li>
+                                                  <li>
+                                                    <h4><strong>Heap:</strong> Objects allocated in teh memory</h4>
+                                                  </li>
+                                                  <li>
+                                                    <h4><strong>Queue:</strong> Runtime list of messages to be processed</h4>
+                                                  </li>
+                                                  <li>
+                                                    <h4><strong>Event Loop:</strong> Check if stack is empty. if empty push anything waiting in the queue</h4>
+                                                  </li>
+                                                </ul>
+                                            </div>
+                                            <div class="column">
+                                                <img src="static/images/eventLoop.svg" alt="">
+                                              </div>
+                                          </div>
+                                        </div>
+                                  </section>
+                                  <section>
+                                      <div class="wrap">
+                                          <h2 class="aligncenter">Javascript is single threaded but you have a browser</h2>
+                                         <div class="grid">
+                                            <div class="column">
+                                                
+                                              <br>                                              
+                                              <a class="button radius" href="http://latentflip.com/loupe/">Try it out here</a>
+                                            </div>
+                                            <div class="column">
+                                                <img src="static/images/eventLoop.png" alt="">
+                                              </div>
+                                          </div>
+                                        </div>
+                                  </section>
+                                  <section>
+                                      <div class="wrap">
+                                          <h2 class="aligncenter">template two column</h2>
+                                         <div class="grid">
+                                            <div class="column">
+                                                <pre><code class="hljs javascript">
+    
+    
+                                              </code></pre>
+                                            </div>
+                                            <div class="column">
+                                                <pre><code class="hljs javascript">
+    
+      </code></pre>
+                                              </div>
+                                          </div>
+                                        </div>
+                                  </section>
                               
                               
                              
